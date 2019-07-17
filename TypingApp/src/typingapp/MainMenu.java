@@ -27,21 +27,88 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        MainMenu_Panel = new javax.swing.JPanel();
+        MainMenu_welcomeLabel = new javax.swing.JLabel();
+        MainMenu_uploadSourceCodeButton = new javax.swing.JButton();
+        MainMenu_practiceButton = new javax.swing.JButton();
+        MainMenu_exitButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        MainMenu_welcomeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        MainMenu_welcomeLabel.setText("Welcome To Code Typing Practice");
+
+        MainMenu_uploadSourceCodeButton.setText("Upload Source Code");
+
+        MainMenu_practiceButton.setText("Practice !");
+        MainMenu_practiceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MainMenu_practiceButtonActionPerformed(evt);
+            }
+        });
+
+        MainMenu_exitButton.setText("Exit");
+        MainMenu_exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MainMenu_exitButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MainMenu_PanelLayout = new javax.swing.GroupLayout(MainMenu_Panel);
+        MainMenu_Panel.setLayout(MainMenu_PanelLayout);
+        MainMenu_PanelLayout.setHorizontalGroup(
+            MainMenu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MainMenu_PanelLayout.createSequentialGroup()
+                .addGroup(MainMenu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MainMenu_PanelLayout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addGroup(MainMenu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(MainMenu_uploadSourceCodeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(MainMenu_practiceButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MainMenu_exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(MainMenu_PanelLayout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(MainMenu_welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(131, Short.MAX_VALUE))
+        );
+        MainMenu_PanelLayout.setVerticalGroup(
+            MainMenu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MainMenu_PanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(MainMenu_welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(MainMenu_uploadSourceCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(MainMenu_practiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(MainMenu_exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(MainMenu_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(MainMenu_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MainMenu_exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainMenu_exitButtonActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_MainMenu_exitButtonActionPerformed
+
+    private void MainMenu_practiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainMenu_practiceButtonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Practice().setVisible(true);
+    }//GEN-LAST:event_MainMenu_practiceButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +146,10 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MainMenu_Panel;
+    private javax.swing.JButton MainMenu_exitButton;
+    private javax.swing.JButton MainMenu_practiceButton;
+    private javax.swing.JButton MainMenu_uploadSourceCodeButton;
+    private javax.swing.JLabel MainMenu_welcomeLabel;
     // End of variables declaration//GEN-END:variables
 }
