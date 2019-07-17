@@ -174,8 +174,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
             result = (ArrayList<String>) Files.readAllLines(Paths.get(filePath));
             for(int i = 0 ;i<result.size(); i++)
             {
-                code += result.get(i);
-                code += '\n';
+                code += result.get(i) + '\n';
             }
             UploadSourceCode_codeReviewArea.setText(code);
         }

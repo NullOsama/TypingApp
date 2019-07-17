@@ -10,6 +10,17 @@ package typingapp;
  * @author Relax
  */
 public abstract class Settings {
-    public static String LANGUAGE_CHOICE="Java";
-    public static String LANGUAGE_FILE="java.txt";
-}
+    private static String languageCode;
+
+    public static String getLanguageCode()
+    {
+        return languageCode;
+    }
+
+    public static void setLanguageCode(String aLanguageCode)
+    {
+        languageCode = aLanguageCode;
+    }
+    
+    
+  }
