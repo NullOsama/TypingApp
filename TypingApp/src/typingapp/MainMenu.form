@@ -23,17 +23,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="MainMenu_Panel" alignment="1" max="32767" attributes="0"/>
+          <Component id="MainMenu_panel" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="MainMenu_Panel" alignment="1" max="32767" attributes="0"/>
+          <Component id="MainMenu_panel" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="MainMenu_Panel">
+    <Container class="javax.swing.JPanel" name="MainMenu_panel">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -84,6 +84,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Upload Source Code"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MainMenu_uploadSourceCodeButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="MainMenu_practiceButton">
           <Properties>
