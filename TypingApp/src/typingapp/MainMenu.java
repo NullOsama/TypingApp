@@ -39,6 +39,11 @@ public class MainMenu extends javax.swing.JFrame {
         MainMenu_welcomeLabel.setText("Welcome To Code Typing Practice");
 
         MainMenu_uploadSourceCodeButton.setText("Upload Source Code");
+        MainMenu_uploadSourceCodeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MainMenu_uploadSourceCodeButtonActionPerformed(evt);
+            }
+        });
 
         MainMenu_practiceButton.setText("Practice !");
         MainMenu_practiceButton.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +114,12 @@ public class MainMenu extends javax.swing.JFrame {
         this.setVisible(false);
         new Practice().setVisible(true);
     }//GEN-LAST:event_MainMenu_practiceButtonActionPerformed
+
+    private void MainMenu_uploadSourceCodeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainMenu_uploadSourceCodeButtonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new UploadSourceCode().setVisible(true);
+    }//GEN-LAST:event_MainMenu_uploadSourceCodeButtonActionPerformed
 
     /**
      * @param args the command line arguments

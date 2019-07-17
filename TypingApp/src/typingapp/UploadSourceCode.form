@@ -58,7 +58,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="UploadSoruceCode_language" min="-2" pref="90" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jComboBox1" min="-2" pref="163" max="-2" attributes="0"/>
+                                          <Component id="UploadSourceCode_languageIndecatorComboBox" min="-2" pref="163" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="UploadSoruceCode_code" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -90,7 +90,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="UploadSoruceCode_language" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="UploadSourceCode_languageIndecatorComboBox" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="UploadSoruceCode_code" min="-2" max="-2" attributes="0"/>
@@ -129,14 +129,21 @@
             <Property name="text" type="java.lang.String" value="Language:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="UploadSourceCode_languageIndecatorComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="1">
+              <StringArray count="5">
                 <StringItem index="0" value="Java"/>
+                <StringItem index="1" value="C#"/>
+                <StringItem index="2" value="C++"/>
+                <StringItem index="3" value="Sql"/>
+                <StringItem index="4" value="Matlab"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="UploadSourceCode_languageIndecatorComboBoxItemStateChanged"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -183,6 +190,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UploadSoruceCode_backButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

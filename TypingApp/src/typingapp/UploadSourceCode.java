@@ -5,6 +5,15 @@
  */
 package typingapp;
 
+import java.awt.List;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Stream;
+
 /**
  *
  * @author Relax
@@ -30,7 +39,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         UploadSoruceCode_title = new javax.swing.JLabel();
         UploadSoruceCode_language = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        UploadSourceCode_languageIndecatorComboBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         UploadSoruceCode_code = new javax.swing.JLabel();
@@ -51,7 +60,12 @@ public class UploadSourceCode extends javax.swing.JFrame {
         UploadSoruceCode_language.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         UploadSoruceCode_language.setText("Language:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Java" }));
+        UploadSourceCode_languageIndecatorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Java", "C#", "C++", "Sql", "Matlab" }));
+        UploadSourceCode_languageIndecatorComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                UploadSourceCode_languageIndecatorComboBoxItemStateChanged(evt);
+            }
+        });
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -71,6 +85,11 @@ public class UploadSourceCode extends javax.swing.JFrame {
 
         UploadSoruceCode_backButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         UploadSoruceCode_backButton.setText("Back");
+        UploadSoruceCode_backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UploadSoruceCode_backButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -87,7 +106,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(UploadSoruceCode_language, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(UploadSourceCode_languageIndecatorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(UploadSoruceCode_code))
                                 .addGap(112, 112, 112)))
                         .addContainerGap(75, Short.MAX_VALUE))
@@ -108,7 +127,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UploadSoruceCode_language, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(UploadSourceCode_languageIndecatorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(UploadSoruceCode_code)
                 .addGap(8, 8, 8)
@@ -137,6 +156,24 @@ public class UploadSourceCode extends javax.swing.JFrame {
     private void UploadSoruceCode_saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadSoruceCode_saveButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UploadSoruceCode_saveButtonActionPerformed
+
+    private void UploadSoruceCode_backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadSoruceCode_backButtonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new MainMenu().setVisible(true);
+    }//GEN-LAST:event_UploadSoruceCode_backButtonActionPerformed
+
+    private void UploadSourceCode_languageIndecatorComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UploadSourceCode_languageIndecatorComboBoxItemStateChanged
+        // TODO add your handling code here:
+        String selectedItem = UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString();
+        String filePath = "CodeResources.txt//" + selectedItem;
+        try {
+            ArrayList<String> result = new ArrayList<>();
+            result = (ArrayList<String>) Files.readAllLines(Paths.get(filePath));
+        } catch (IOException ex) {
+            Logger.getLogger(UploadSourceCode.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_UploadSourceCode_languageIndecatorComboBoxItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -179,7 +216,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
     private javax.swing.JLabel UploadSoruceCode_language;
     private javax.swing.JButton UploadSoruceCode_saveButton;
     private javax.swing.JLabel UploadSoruceCode_title;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> UploadSourceCode_languageIndecatorComboBox;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
