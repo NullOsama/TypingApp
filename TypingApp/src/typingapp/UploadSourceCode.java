@@ -41,7 +41,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
         UploadSoruceCode_language = new javax.swing.JLabel();
         UploadSourceCode_languageIndecatorComboBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        UploadSourceCode_codeReviewArea = new javax.swing.JTextArea();
         UploadSoruceCode_code = new javax.swing.JLabel();
         UploadSoruceCode_saveButton = new javax.swing.JButton();
         UploadSoruceCode_backButton = new javax.swing.JButton();
@@ -67,10 +67,10 @@ public class UploadSourceCode extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        UploadSourceCode_codeReviewArea.setEditable(false);
+        UploadSourceCode_codeReviewArea.setColumns(20);
+        UploadSourceCode_codeReviewArea.setRows(5);
+        jScrollPane1.setViewportView(UploadSourceCode_codeReviewArea);
 
         UploadSoruceCode_code.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         UploadSoruceCode_code.setText("Code:");
@@ -166,13 +166,24 @@ public class UploadSourceCode extends javax.swing.JFrame {
     private void UploadSourceCode_languageIndecatorComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UploadSourceCode_languageIndecatorComboBoxItemStateChanged
         // TODO add your handling code here:
         String selectedItem = UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString();
-        String filePath = "CodeResources.txt//" + selectedItem;
-        try {
+        String filePath = "CodeResources.txt//" + selectedItem + ".txt";
+        String code = "";
+        try
+        {   
             ArrayList<String> result = new ArrayList<>();
             result = (ArrayList<String>) Files.readAllLines(Paths.get(filePath));
-        } catch (IOException ex) {
+            for(int i = 0 ;i<result.size(); i++)
+            {
+                code += result.get(i);
+                code += '\n';
+            }
+            UploadSourceCode_codeReviewArea.setText(code);
+        }
+        catch (IOException ex) 
+        {
             Logger.getLogger(UploadSourceCode.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_UploadSourceCode_languageIndecatorComboBoxItemStateChanged
 
     /**
@@ -216,9 +227,9 @@ public class UploadSourceCode extends javax.swing.JFrame {
     private javax.swing.JLabel UploadSoruceCode_language;
     private javax.swing.JButton UploadSoruceCode_saveButton;
     private javax.swing.JLabel UploadSoruceCode_title;
+    private javax.swing.JTextArea UploadSourceCode_codeReviewArea;
     private javax.swing.JComboBox<String> UploadSourceCode_languageIndecatorComboBox;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
