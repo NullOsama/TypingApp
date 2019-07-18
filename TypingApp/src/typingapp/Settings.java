@@ -9,7 +9,8 @@ package typingapp;
  *
  * @author Relax
  */
-public abstract class Settings {
+public abstract class Settings 
+{
     private static String languageCode;
 
     public static String getLanguageCode()
@@ -21,6 +22,4 @@ public abstract class Settings {
     {
         languageCode = aLanguageCode;
     }
-    
-    
-  }
+}
