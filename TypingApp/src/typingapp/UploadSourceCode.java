@@ -177,6 +177,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
                 code += result.get(i) + '\n';
             }
             UploadSourceCode_codeReviewArea.setText(code);
+            Settings.setLanguageCode(code);
         }
         catch (IOException ex) 
         {
