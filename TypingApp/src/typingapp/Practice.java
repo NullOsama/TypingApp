@@ -12,7 +12,8 @@ import java.util.TimerTask;
  * @author aaxxo
  */
 public class Practice extends javax.swing.JFrame {
-        public static int counter = 60; 
+    public static int counter = 60; 
+    private boolean startCount=false;
     class Helper extends TimerTask 
 { 
         private int choice;
@@ -24,12 +25,14 @@ public class Practice extends javax.swing.JFrame {
     public void run() 
     { 
         switch(choice){
-            case 1:{
+            case 1:{//counting theead 
             --counter;
             System.out.println(counter);
             Practice_remainingTime.setText(counter+"");
             break;
             }
+            case 2:// coloring thread 
+                
         }
         }
     } 
@@ -45,9 +48,7 @@ Timer timer = new Timer();
       
         
         initComponents();
-        Timer timer = new Timer(); 
-        TimerTask task = new Helper(1); 
-        timer.schedule(task,1,1000);
+  
     }
 
     /**
@@ -82,6 +83,13 @@ Timer timer = new Timer();
         Practice_remainingTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Practice_remainingTimeLabel.setText("Time Remaining: ");
 
+        Practice_inputCodePane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Practice_inputCodePane.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
+        Practice_inputCodePane.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Practice_inputCodePaneKeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(Practice_inputCodePane);
 
         Practice_returnToMainMenuButton.setText("End");
@@ -146,8 +154,8 @@ Timer timer = new Timer();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98)
                 .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -177,6 +185,17 @@ Timer timer = new Timer();
         this.setVisible(false);
         new MainMenu().setVisible(true);
     }//GEN-LAST:event_Practice_returnToMainMenuButtonActionPerformed
+
+    private void Practice_inputCodePaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Practice_inputCodePaneKeyPressed
+        // TODO add your handling code here:
+        if(startCount==false)
+        {
+            startCount=true;
+        Timer timer = new Timer(); 
+        TimerTask task = new Helper(1); 
+        timer.schedule(task,1,1000);
+        }
+    }//GEN-LAST:event_Practice_inputCodePaneKeyPressed
 
     /**
      * @param args the command line arguments
