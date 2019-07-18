@@ -25,6 +25,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
      */
     public UploadSourceCode() {
         initComponents();
+        UploadSourceCode_saveButton.setVisible(false);
     }
 
     /**
@@ -45,6 +46,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
         UploadSoruceCode_code = new javax.swing.JLabel();
         UploadSoruceCode_saveButton = new javax.swing.JButton();
         UploadSoruceCode_backButton = new javax.swing.JButton();
+        UploadSourceCode_saveButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Upload Source Code");
@@ -64,6 +66,11 @@ public class UploadSourceCode extends javax.swing.JFrame {
         UploadSourceCode_languageIndecatorComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 UploadSourceCode_languageIndecatorComboBoxItemStateChanged(evt);
+            }
+        });
+        UploadSourceCode_languageIndecatorComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UploadSourceCode_languageIndecatorComboBoxActionPerformed(evt);
             }
         });
 
@@ -91,6 +98,9 @@ public class UploadSourceCode extends javax.swing.JFrame {
             }
         });
 
+        UploadSourceCode_saveButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        UploadSourceCode_saveButton.setText("Saved !");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,11 +127,13 @@ public class UploadSourceCode extends javax.swing.JFrame {
                                 .addComponent(UploadSoruceCode_backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(UploadSoruceCode_saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(67, 67, 67))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(UploadSourceCode_saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(UploadSoruceCode_title, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -133,10 +145,11 @@ public class UploadSourceCode extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(UploadSoruceCode_saveButton, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(UploadSourceCode_saveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(UploadSoruceCode_backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -147,7 +160,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -155,6 +168,8 @@ public class UploadSourceCode extends javax.swing.JFrame {
 
     private void UploadSoruceCode_saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadSoruceCode_saveButtonActionPerformed
         // TODO add your handling code here:
+        Settings.setLanguageCode(code);
+        UploadSourceCode_saveButton.setVisible(true);
     }//GEN-LAST:event_UploadSoruceCode_saveButtonActionPerformed
 
     private void UploadSoruceCode_backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadSoruceCode_backButtonActionPerformed
@@ -163,11 +178,12 @@ public class UploadSourceCode extends javax.swing.JFrame {
         new MainMenu().setVisible(true);
     }//GEN-LAST:event_UploadSoruceCode_backButtonActionPerformed
 
+    private String code = "";
     private void UploadSourceCode_languageIndecatorComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UploadSourceCode_languageIndecatorComboBoxItemStateChanged
         // TODO add your handling code here:
         String selectedItem = UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString();
         String filePath = "CodeResources.txt//" + selectedItem + ".txt";
-        String code = "";
+        
         try
         {   
             ArrayList<String> result = new ArrayList<>();
@@ -177,7 +193,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
                 code += result.get(i) + '\n';
             }
             UploadSourceCode_codeReviewArea.setText(code);
-            Settings.setLanguageCode(code);
+            UploadSourceCode_saveButton.setVisible(false);
         }
         catch (IOException ex) 
         {
@@ -185,6 +201,10 @@ public class UploadSourceCode extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_UploadSourceCode_languageIndecatorComboBoxItemStateChanged
+
+    private void UploadSourceCode_languageIndecatorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadSourceCode_languageIndecatorComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UploadSourceCode_languageIndecatorComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,6 +249,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
     private javax.swing.JLabel UploadSoruceCode_title;
     private javax.swing.JTextArea UploadSourceCode_codeReviewArea;
     private javax.swing.JComboBox<String> UploadSourceCode_languageIndecatorComboBox;
+    private javax.swing.JLabel UploadSourceCode_saveButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
