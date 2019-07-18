@@ -6,14 +6,16 @@
 package typingapp;
 import java.util.Timer;
 import java.util.TimerTask; 
+import javax.swing.JFrame;
 
 /**
  *
  * @author aaxxo
  */
 public class Practice extends javax.swing.JFrame {
-    public static int counter = 60; 
+    public static int counter = 10; 
     private boolean startCount=false;
+    private Timer timer;
     class Helper extends TimerTask 
 { 
         private int choice;
@@ -24,26 +26,29 @@ public class Practice extends javax.swing.JFrame {
     @Override
     public void run() 
     { 
-        switch(choice){
-            case 1:{//counting theead 
             --counter;
+            if(counter == 0)
+            {
+                JFrame resultForm=new Results();
+                resultForm.setVisible(true);
+                hideForm();
+                timer.cancel();
+            }else {
+            
             System.out.println(counter);
             Practice_remainingTime.setText(counter+"");
-            break;
+            
             }
-            case 2:// coloring thread 
-                
-        }
+
         }
     } 
-    
-
-    
-Timer timer = new Timer();
-
     /**
      * Creates new form Practice
      */
+    private void hideForm()
+    {
+        this.setVisible(false);
+    }
     public Practice() {
       
         
@@ -117,7 +122,7 @@ Timer timer = new Timer();
                         .addComponent(Practice_languageIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                             .addComponent(jScrollPane2)
                             .addGroup(Practice_panelLayout.createSequentialGroup()
                                 .addComponent(Practice_languageLabel)
@@ -128,7 +133,7 @@ Timer timer = new Timer();
                                 .addGap(48, 48, 48)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Practice_timeIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -151,11 +156,11 @@ Timer timer = new Timer();
                         .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Practice_remainingTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Practice_remainingTime))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
+                .addGap(77, 77, 77)
                 .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -167,14 +172,11 @@ Timer timer = new Timer();
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Practice_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Practice_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(Practice_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -191,7 +193,7 @@ Timer timer = new Timer();
         if(startCount==false)
         {
             startCount=true;
-        Timer timer = new Timer(); 
+        timer = new Timer(); 
         TimerTask task = new Helper(1); 
         timer.schedule(task,1,1000);
         }
