@@ -105,6 +105,8 @@ public class Practice extends javax.swing.JFrame {
             }
         });
 
+        Practice_originCodePane.setEditable(false);
+        Practice_originCodePane.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
         jScrollPane3.setViewportView(Practice_originCodePane);
 
         Practice_remainingTime.setText("60");
