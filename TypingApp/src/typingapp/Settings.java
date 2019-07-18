@@ -12,6 +12,7 @@ package typingapp;
 public abstract class Settings 
 {
     private static String languageCode;
+    public static String languageName;
 
     public static String getLanguageCode()
     {

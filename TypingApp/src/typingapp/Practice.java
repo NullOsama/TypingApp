@@ -13,7 +13,7 @@ import javax.swing.JFrame;
  * @author aaxxo
  */
 public class Practice extends javax.swing.JFrame {
-    public static int counter = 10; 
+    public static int counter = 60; 
     private boolean startCount=false;
     private Timer timer;
     class Helper extends TimerTask 
@@ -52,8 +52,8 @@ public class Practice extends javax.swing.JFrame {
     public Practice() {
       
         initComponents();
-        Practice_languageName.setText(Settings.LANGUAGE_CHOICE);
-        Practice_originCodePane.setText(Settings.LANGUAGE_FILE);
+        Practice_languageName.setText(Settings.languageName);
+        Practice_originCodePane.setText(Settings.getLanguageCode());
     }
 
     /**
