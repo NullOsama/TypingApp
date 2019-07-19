@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask; 
 import javax.swing.JFrame;
+import javax.swing.text.html.HTMLEditorKit;
 
 /**
  *
@@ -41,7 +42,6 @@ public class Practice extends javax.swing.JFrame {
                         timer.cancel();
                     }else
                     {
-                    System.out.println(counter);
                     Practice_remainingTime.setText(counter+"");
                     }
                     break;
@@ -59,21 +59,31 @@ public class Practice extends javax.swing.JFrame {
     public void showLines(int num)
     {
         Practice_originCodePane.setText("");
+        String h="";
         ArrayList<String> lines=code.getLines(num);
         for( String l : lines)
-            if(Practice_originCodePane.getText().trim().equals(""))
-                        Practice_originCodePane.setText(l);
-            else
-                        Practice_originCodePane.setText(Practice_originCodePane.getText()+'\n'+l);
-        
+        {
+            String[]words=l.split(" ");
+             for( String word : words)
+                 h+=" <span>"+word+"</span>";
+             h+=" <br> ";
+        }
+       Practice_originCodePane.setText(h);
+       System.out.println(Practice_originCodePane.getText());
+
     }
     public Practice() {
         code =new TextPractice();
         initComponents();
+        HTMLEditorKit kit = new HTMLEditorKit();
+        Practice_originCodePane.setEditorKit(kit);
+    
+        Practice_originCodePane.setContentType("text/html");
         Practice_languageName.setText(Settings.getLanguageName());
         code.setText(Settings.getLanguageCode());
         showLines(3);
         code.setNewLine();
+        backgorundColorInput("orange",code.getCurrentWord());
     }
 
     /**
@@ -116,6 +126,7 @@ public class Practice extends javax.swing.JFrame {
             }
         });
 
+        Practice_originCodePane.setEditable(false);
         Practice_originCodePane.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
         jScrollPane3.setViewportView(Practice_originCodePane);
 
@@ -234,18 +245,43 @@ public class Practice extends javax.swing.JFrame {
             Practice_inputCodeBox.setText("");
             boolean iscorrect=code.compareWord(correctWord.trim(), inputWord.trim());
             if(iscorrect==true)
+            {
                 code.increase_numberOfCorrectCharacters(inputWord.length());
+                colorInput("green",correctWord.trim());
+                //color green
+            }else 
+            {
+                colorInput("red",correctWord.trim());
+                //color red;
+            }
             if(code.increase_CurrentWord()==true)
             {
              
              showLines(3);//Thread
             }
-
+            backgorundColorInput("orange",code.getCurrentWord());
             System.out.println(iscorrect);
         }
 
     }//GEN-LAST:event_Practice_inputCodeBoxKeyPressed
+public void colorInput(String color,String word)
+{
+    String colorText="<span style='color:"+color+"'>";
+    String codeText=Practice_originCodePane.getText();
+    codeText=codeText.replace("<span style=\"background-color: orange\">"+word+"</span>", colorText+word+"</span>");
+    Practice_originCodePane.setText(codeText);
+}
 
+public void backgorundColorInput(String color,String word)
+{
+    System.out.println("<span>"+word+"</span>");
+    String colorText="<span style='background-color:"+color+"'>";
+    String codeText=Practice_originCodePane.getText();
+    int current=codeText.indexOf("<span>"+word+"</span>");
+    String x=codeText.substring(0,current)+colorText+word+"</span>"+codeText.substring(current+6*2+word.length()+1,codeText.length());
+    System.out.println(x);
+    Practice_originCodePane.setText(x);
+}
     /**
      * @param args the command line arguments
      */

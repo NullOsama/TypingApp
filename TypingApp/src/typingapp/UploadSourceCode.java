@@ -62,7 +62,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
         UploadSoruceCode_language.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         UploadSoruceCode_language.setText("Language:");
 
-        UploadSourceCode_languageIndecatorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Java", "C#", "C++", "Sql", "Matlab" }));
+        UploadSourceCode_languageIndecatorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Java", "C#", "C++", "Matlab" }));
         UploadSourceCode_languageIndecatorComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 UploadSourceCode_languageIndecatorComboBoxItemStateChanged(evt);
@@ -204,6 +204,8 @@ public class UploadSourceCode extends javax.swing.JFrame {
                 code += '\n';
                 
             }
+            code = code.replace(")", "&gt;");
+            code = code.replace("\"", "&quot;");
             code = code.replace("}", "");
             code = code.replace("{", "");
             UploadSourceCode_codeReviewArea.setText(code);

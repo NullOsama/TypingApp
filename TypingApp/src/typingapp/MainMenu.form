@@ -23,7 +23,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="MainMenu_panel" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="MainMenu_panel" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -53,7 +56,7 @@
                           <Component id="MainMenu_welcomeLabel" min="-2" pref="230" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="131" max="32767" attributes="0"/>
+                  <EmptySpace pref="235" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -64,11 +67,11 @@
                   <Component id="MainMenu_welcomeLabel" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="MainMenu_uploadSourceCodeButton" min="-2" pref="45" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
                   <Component id="MainMenu_practiceButton" min="-2" pref="58" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="MainMenu_exitButton" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace pref="104" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
