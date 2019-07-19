@@ -14,9 +14,6 @@ public abstract class Settings
     private static String languageCode;
     private static String languageName;
     
-    
-    
-    
     public static String getLanguageCode()
     {
         return languageCode;
