@@ -6,6 +6,8 @@
 package typingapp;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -13,8 +15,9 @@ import java.util.ArrayList;
  */
 public class TextPractice {
     private ArrayList<String> lines=new ArrayList<String>();
-    private int LineCounter=0;
-    private int WordCounter=0;
+    private Map<String, Integer> ErrorChar = new HashMap<>();
+    private int lineCounter=0;
+    private int wordCounter=0;
     public void setText(String txt)
     {
         String [] textLine=txt.split("\n");
@@ -24,7 +27,6 @@ public class TextPractice {
             lines.add(cleanedLine);
         }
     }
-
     /**
      *
      * @param numberOfLines
@@ -33,9 +35,21 @@ public class TextPractice {
     public ArrayList<String> getLines(int  numberOfLines)
     {
         ArrayList<String> lineRecieved=new ArrayList<String>();
-        int temp=LineCounter;
-        for (;LineCounter<lines.size() &&LineCounter<(temp +numberOfLines) ;LineCounter++ )
-                lineRecieved.add(lines.get(LineCounter));
+        int temp=lineCounter;
+        for (;lineCounter<lines.size() &&lineCounter<(temp +numberOfLines) ;lineCounter++ )
+                lineRecieved.add(lines.get(lineCounter));
         return lineRecieved;
+    }
+    
+    public boolean compareWord(String orginal, String userInput)
+    {
+        boolean correct=true;
+        for(int i=0;i<orginal.length();i++)
+            if(orginal.charAt(i)!=userInput.charAt(i))
+            {
+                String key=(orginal.charAt(i)+"");
+                ErrorChar.put(key , ErrorChar.getOrDefault(key, 0) + 1 );
+            }
+        return correct;
     }
 }

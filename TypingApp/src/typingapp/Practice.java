@@ -121,6 +121,11 @@ public class Practice extends javax.swing.JFrame {
 
         Practice_inputCodeBox.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
         Practice_inputCodeBox.setBorder(new javax.swing.border.MatteBorder(null));
+        Practice_inputCodeBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Practice_inputCodeBoxKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Practice_panelLayout = new javax.swing.GroupLayout(Practice_panel);
         Practice_panel.setLayout(Practice_panelLayout);
@@ -205,6 +210,16 @@ public class Practice extends javax.swing.JFrame {
         this.setVisible(false);
         new MainMenu().setVisible(true);
     }//GEN-LAST:event_Practice_returnToMainMenuButtonActionPerformed
+
+    private void Practice_inputCodeBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Practice_inputCodeBoxKeyPressed
+        int key = evt.getKeyCode();
+        if(key == 32 || key == 10)//Space is 32 , Enter is 10
+        {
+            
+            
+        }
+
+    }//GEN-LAST:event_Practice_inputCodeBoxKeyPressed
 
     /**
      * @param args the command line arguments
