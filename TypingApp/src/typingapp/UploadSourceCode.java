@@ -204,7 +204,8 @@ public class UploadSourceCode extends javax.swing.JFrame {
                 code += '\n';
                 
             }
-            //code = code.replace(")", "&gt;");
+            code = code.replace(">", "&gt;");
+            code = code.replace("<", "&lt;");
             code = code.replace("\"", "&quot;");
             code = code.replace("}", "");
             code = code.replace("{", "");

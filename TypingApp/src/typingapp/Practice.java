@@ -243,7 +243,7 @@ public class Practice extends javax.swing.JFrame {
             String correctWord=code.getCurrentWord();
             System.out.println(correctWord+" "+inputWord);
             Practice_inputCodeBox.setText("");
-            boolean iscorrect=code.compareWord(correctWord.trim(), inputWord.trim());
+            boolean iscorrect=code.compareWord(correctWord.trim(), code.cleanString(inputWord).trim());
             if(iscorrect==true)
             {
                 code.increase_numberOfCorrectCharacters(inputWord.length());
@@ -266,6 +266,7 @@ public class Practice extends javax.swing.JFrame {
     }//GEN-LAST:event_Practice_inputCodeBoxKeyPressed
 public void colorInput(String color,String word)
 {
+    word=code.cleanString(word);
     String colorText="<span style='color:"+color+"'>";
     String codeText=Practice_originCodePane.getText();
     codeText=codeText.replace("<span style=\"background-color: orange\">"+word+"</span>", colorText+word+"</span>");
@@ -274,6 +275,7 @@ public void colorInput(String color,String word)
 
 public void backgorundColorInput(String color,String word)
 {
+    word=code.cleanString(word);
     System.out.println("<span>"+word+"</span>");
     String colorText="<span style='background-color:"+color+"'>";
     String codeText=Practice_originCodePane.getText();
