@@ -67,11 +67,24 @@ public class TextPractice {
         ArrayList<String> lineRecieved=new ArrayList<String>();
         int temp=Math.max(0, currentLineCounter-1);
         for (int i=temp;i<lines.size() && i<(temp+numberOfLines) ;i++)
-                lineRecieved.add(lines.get(i));
+        {
+            String code=lines.get(i);
+            lineRecieved.add(code);
+        
+        }
         return lineRecieved;
+    }
+    public String cleanString(String code)
+    {
+            code = code.replace(">", "&gt;");
+            code = code.replace("<", "&lt;");
+            code = code.replace("\"", "&quot;");
+            return code;
     }
     public void setNewLine()
     {
+        if(currentLineCounter>=lines.size())
+            currentLineCounter=0;
         currentLine.clear();
         currentLine.addAll(Arrays.asList(lines.get(currentLineCounter).split(" ")));
         currentLineCounter++;
