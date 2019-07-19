@@ -49,11 +49,12 @@ public class Practice extends javax.swing.JFrame {
     {
         this.setVisible(false);
     }
+     
     public Practice() {
-      
+      TextPractice code =new TextPractice();
         initComponents();
         Practice_languageName.setText(Settings.languageName);
-        Practice_originCodePane.setText(Settings.getLanguageCode());
+        code.setText(Settings.getLanguageCode());
     }
 
     /**
