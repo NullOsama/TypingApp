@@ -1,0 +1,13 @@
+"SELECT jobs.id,jobs.WorkTitle,COUNT(accounts.id) as 
+cjob FROM jobs LEFT JOIN accounts ON accounts.Job=jobs.id
+ GROUP BY WorkTitle  ORDER BY `jobs`.`id` ASC";
+"SELECT department.id,department.DepartmentTittle,COUNT(accounts.id) as 
+cdep FROM department LEFT JOIN accounts ON accounts.Department=department.id 
+GROUP BY DepartmentTittle ORDER BY `department`.`id` ASC";
+"SELECT FormString FROM `buttons`  ORDER BY `buttons`.`id` ASC";
+"select  inv.Title,inv.Payed ,inv.Type, inv.Notes ,customers.id customid,
+customers.Name Name from  invoices inv  LEFT JOIN customers 
+ON customers.id=inv.customer  where inv.state=1 AND inv.id=12";
+"SELECT detail.id as Itemid,goods.Goodid as itemNum ,goods.Title as itemName,
+detail.Quantity itemQuantity,detail.price itemprice FROM `invoices-detail` detail 
+LEFT JOIN goods ON goods.Goodid=detail.item where detail.state =1 AND detail.invoiceid=2  ORDER BY detail.id ASC";

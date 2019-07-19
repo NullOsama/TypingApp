@@ -179,19 +179,31 @@ public class UploadSourceCode extends javax.swing.JFrame {
         new MainMenu().setVisible(true);
     }//GEN-LAST:event_UploadSoruceCode_backButtonActionPerformed
 
-    private String code = "";
+    private String code;
     private void UploadSourceCode_languageIndecatorComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UploadSourceCode_languageIndecatorComboBoxItemStateChanged
         // TODO add your handling code here:
         String selectedItem = UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString();
-        String filePath = "CodeResources.txt//" + selectedItem + ".txt";
+        String filePath = "CodeResources//" + selectedItem + ".txt";
         
         try
         {   
-            ArrayList<String> result = new ArrayList<>();
-            result = (ArrayList<String>) Files.readAllLines(Paths.get(filePath));
-            for(int i = 0 ;i<result.size(); i++)
+            code = "";
+            ArrayList<String> lines = new ArrayList<>();
+            lines = (ArrayList<String>) Files.readAllLines(Paths.get(filePath));
+            for(int i = 0 ;i<lines.size(); i++)
             {
-                code += result.get(i) + '\n';
+                String[] words = lines.get(i).split(" ");
+                int count =0;
+                int j=0;
+                while(count<40 && j < words.length)
+                {
+                    code += words[j] + ' ';
+                    count += words[j].length();
+                    j++;
+                }
+                code += '\n';
+                code = code.replace("}", "");
+                code = code.replace("{", "");
             }
             UploadSourceCode_codeReviewArea.setText(code);
             UploadSourceCode_saveButton.setVisible(false);
