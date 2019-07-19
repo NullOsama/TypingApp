@@ -202,9 +202,10 @@ public class UploadSourceCode extends javax.swing.JFrame {
                     j++;
                 }
                 code += '\n';
-                code = code.replace("}", "");
-                code = code.replace("{", "");
+                
             }
+            code = code.replace("}", "");
+            code = code.replace("{", "");
             UploadSourceCode_codeReviewArea.setText(code);
             UploadSourceCode_saveButton.setVisible(false);
         }
