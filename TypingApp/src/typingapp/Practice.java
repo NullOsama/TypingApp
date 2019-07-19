@@ -68,6 +68,7 @@ public class Practice extends javax.swing.JFrame {
         initComponents();
         Practice_languageName.setText(Settings.languageName);
         code.setText(Settings.getLanguageCode());
+        code.setNewLine();
         showLines();
     }
 
@@ -111,7 +112,6 @@ public class Practice extends javax.swing.JFrame {
             }
         });
 
-        Practice_originCodePane.setEditable(false);
         Practice_originCodePane.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
         jScrollPane3.setViewportView(Practice_originCodePane);
 
@@ -215,8 +215,15 @@ public class Practice extends javax.swing.JFrame {
         int key = evt.getKeyCode();
         if(key == 32 || key == 10)//Space is 32 , Enter is 10
         {
-            
-            
+            String inputWord=Practice_inputCodeBox.getText();
+            String correctWord=code.getCurrentWord();
+            System.out.println(correctWord+" "+correctWord);
+            Practice_inputCodeBox.setText("");
+            boolean iscorrect=code.compareWord(correctWord.trim(), inputWord.trim());
+            if(iscorrect==true)
+                code.increase_numberOfCorrectCharacters(inputWord.length());
+            code.increase_CurrentWord();
+            System.out.println(iscorrect);
         }
 
     }//GEN-LAST:event_Practice_inputCodeBoxKeyPressed
@@ -249,8 +256,8 @@ public class Practice extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable() {    
+        public void run() {
                 new Practice().setVisible(true);
                 
             }
