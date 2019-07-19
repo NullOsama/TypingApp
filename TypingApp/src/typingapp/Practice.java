@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package typingapp;
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask; 
 import javax.swing.JFrame;
@@ -51,10 +54,17 @@ public class Practice extends javax.swing.JFrame {
     }
      
     public Practice() {
-      TextPractice code =new TextPractice();
+        TextPractice code =new TextPractice();
         initComponents();
         Practice_languageName.setText(Settings.languageName);
         code.setText(Settings.getLanguageCode());
+        ArrayList<String> x=code.getLines(3);
+        for( String l : x)
+            if(Practice_originCodePane.getText().trim().equals(""))
+                        Practice_originCodePane.setText(l);
+            else
+                        Practice_originCodePane.setText(Practice_originCodePane.getText()+'\n'+l);
+        
     }
 
     /**
@@ -167,10 +177,10 @@ public class Practice extends javax.swing.JFrame {
                                 .addComponent(Practice_languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Practice_languageName)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
+                .addGap(120, 120, 120)
                 .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

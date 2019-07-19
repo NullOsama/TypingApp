@@ -33,7 +33,8 @@ public class TextPractice {
     public ArrayList<String> getLines(int  numberOfLines)
     {
         ArrayList<String> lineRecieved=new ArrayList<String>();
-        for (;LineCounter<lines.size() &&LineCounter<(LineCounter +numberOfLines) ;LineCounter++ )
+        int temp=LineCounter;
+        for (;LineCounter<lines.size() &&LineCounter<(temp +numberOfLines) ;LineCounter++ )
                 lineRecieved.add(lines.get(LineCounter));
         return lineRecieved;
     }
