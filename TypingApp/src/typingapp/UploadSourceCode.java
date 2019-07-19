@@ -25,6 +25,41 @@ public class UploadSourceCode extends javax.swing.JFrame {
      */
     public UploadSourceCode() {
         initComponents();
+        
+        
+        String selectedItem = UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString();
+        String filePath = "CodeResources//" + selectedItem + ".txt";
+        
+        try
+        {   
+            code = "";
+            ArrayList<String> lines = new ArrayList<>();
+            lines = (ArrayList<String>) Files.readAllLines(Paths.get(filePath));
+            for(int i = 0 ;i<lines.size(); i++)
+            {
+                String[] words = lines.get(i).split(" ");
+                int count =0;
+                int j=0;
+                while(count<40 && j < words.length)
+                {
+                    code += words[j] + ' ';
+                    count += words[j].length();
+                    j++;
+                }
+                code += '\n';
+            }
+            code = code.replace("}", "");
+            code = code.replace("{", "");
+            UploadSourceCode_codeReviewArea.setText(code);
+            UploadSourceCode_saveButton.setVisible(false);
+        }
+        catch (IOException ex) 
+        {
+            Logger.getLogger(UploadSourceCode.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Settings.setLanguageCode(code);
+        Settings.setLanguageName(UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString());
+        
         UploadSourceCode_saveButton.setVisible(false);
     }
 

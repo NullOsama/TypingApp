@@ -16,6 +16,10 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() {
         initComponents();
+        if(Settings.getLanguageName().equals(""))
+        MainMenu_practiceButton.setEnabled(false);
+        else
+        MainMenu_practiceButton.setEnabled(true);   
     }
 
     /**
@@ -89,6 +93,8 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(MainMenu_exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(104, Short.MAX_VALUE))
         );
+
+        MainMenu_practiceButton.getAccessibleContext().setAccessibleParent(this);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
