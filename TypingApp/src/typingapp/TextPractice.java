@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class TextPractice {
     private ArrayList<String> lines=new ArrayList<String>();
-    
-    
+    private int LineCounter=0;
+    private int WordCounter=0;
     public void setText(String txt)
     {
         String [] textLine=txt.split("\n");
@@ -23,8 +23,18 @@ public class TextPractice {
             if(cleanedLine.length()==0)continue;
             lines.add(cleanedLine);
         }
-        for (String line : lines) {
-            System.out.println(line);
-        }
+    }
+
+    /**
+     *
+     * @param numberOfLines
+     * @return
+     */
+    public ArrayList<String> getLines(int  numberOfLines)
+    {
+        ArrayList<String> lineRecieved=new ArrayList<String>();
+        for (;LineCounter<lines.size() &&LineCounter<(LineCounter +numberOfLines) ;LineCounter++ )
+                lineRecieved.add(lines.get(LineCounter));
+        return lineRecieved;
     }
 }
