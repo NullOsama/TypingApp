@@ -52,7 +52,7 @@ public class Practice extends javax.swing.JFrame {
     public Practice() {
       
         initComponents();
-        Practice_languageName.setText(Settings.languageName);
+        Practice_languageName.setText(Settings.getLanguageName());
         Practice_originCodePane.setText(Settings.getLanguageCode());
     }
 
