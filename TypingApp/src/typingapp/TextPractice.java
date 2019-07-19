@@ -72,6 +72,8 @@ public class TextPractice {
     }
     public void setNewLine()
     {
+        if(currentLineCounter>=lines.size())
+            currentLineCounter=0;
         currentLine.clear();
         currentLine.addAll(Arrays.asList(lines.get(currentLineCounter).split(" ")));
         currentLineCounter++;
