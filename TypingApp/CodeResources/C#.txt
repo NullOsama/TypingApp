@@ -1,0 +1,53 @@
+using System;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+
+public class Example28
+{
+   public static void Main()
+   {
+      string str1 = "sister";
+      string str2 = "Sister";
+      string relation;
+      int result;
+
+      // Cultural (linguistic) comparison.
+      result = String.Compare(str1, str2, new CultureInfo("en-US"), 
+                              CompareOptions.None);
+      if (result > 0)
+         relation = "comes after";
+      else if (result == 0)
+         relation = "is the same as";
+      else
+         relation = "comes before";
+
+      Console.WriteLine("'{0}' {1} '{2}'.", 
+                        str1, relation, str2);
+
+      // Cultural (linguistic) case-insensitive comparison.
+      result = String.Compare(str1, str2, new CultureInfo("en-US"), 
+                              CompareOptions.IgnoreCase);
+      if (result > 0)
+         relation = "comes after";
+      else if (result == 0)
+         relation = "is the same as";
+      else
+         relation = "comes before";
+
+      Console.WriteLine("'{0}' {1} '{2}'.", 
+                        str1, relation, str2);
+
+       // Culture-insensitive ordinal comparison.
+      result = String.CompareOrdinal(str1, str2);
+      if (result > 0)
+         relation = "comes after";
+      else if (result == 0)
+         relation = "is the same as";
+      else
+         relation = "comes before";
+
+      Console.WriteLine("'{0}' {1} '{2}'.", 
+                        str1, relation, str2);
+   }
+}
