@@ -19,6 +19,7 @@ public class Practice extends javax.swing.JFrame {
     public static int counter = 60; 
     private boolean startCount=false;
     private Timer timer;
+     TextPractice code;
     class Helper extends TimerTask 
 { 
         private int choice;
@@ -52,19 +53,22 @@ public class Practice extends javax.swing.JFrame {
     {
         this.setVisible(false);
     }
-     
-    public Practice() {
-        TextPractice code =new TextPractice();
-        initComponents();
-        Practice_languageName.setText(Settings.languageName);
-        code.setText(Settings.getLanguageCode());
-        ArrayList<String> x=code.getLines(3);
+    public void showLines()
+    {
+         ArrayList<String> x=code.getLines(3);
         for( String l : x)
             if(Practice_originCodePane.getText().trim().equals(""))
                         Practice_originCodePane.setText(l);
             else
                         Practice_originCodePane.setText(Practice_originCodePane.getText()+'\n'+l);
         
+    }
+    public Practice() {
+        code =new TextPractice();
+        initComponents();
+        Practice_languageName.setText(Settings.languageName);
+        code.setText(Settings.getLanguageCode());
+        showLines();
     }
 
     /**
@@ -76,19 +80,19 @@ public class Practice extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollBar1 = new javax.swing.JScrollBar();
         Practice_panel = new javax.swing.JPanel();
         Practice_practiceLabel = new javax.swing.JLabel();
         Practice_languageLabel = new javax.swing.JLabel();
         Practice_languageIndecatorLabel = new javax.swing.JLabel();
         Practice_remainingTimeLabel = new javax.swing.JLabel();
         Practice_timeIndecatorLabel = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        Practice_inputCodePane = new javax.swing.JTextPane();
         Practice_returnToMainMenuButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         Practice_originCodePane = new javax.swing.JTextPane();
         Practice_remainingTime = new javax.swing.JLabel();
         Practice_languageName = new javax.swing.JLabel();
+        Practice_inputCodeBox = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,15 +103,6 @@ public class Practice extends javax.swing.JFrame {
 
         Practice_remainingTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Practice_remainingTimeLabel.setText("Time Remaining: ");
-
-        Practice_inputCodePane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Practice_inputCodePane.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
-        Practice_inputCodePane.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                Practice_inputCodePaneKeyPressed(evt);
-            }
-        });
-        jScrollPane2.setViewportView(Practice_inputCodePane);
 
         Practice_returnToMainMenuButton.setText("End");
         Practice_returnToMainMenuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +119,9 @@ public class Practice extends javax.swing.JFrame {
 
         Practice_languageName.setText("Practice_languageName");
 
+        Practice_inputCodeBox.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
+        Practice_inputCodeBox.setBorder(new javax.swing.border.MatteBorder(null));
+
         javax.swing.GroupLayout Practice_panelLayout = new javax.swing.GroupLayout(Practice_panel);
         Practice_panel.setLayout(Practice_panelLayout);
         Practice_panelLayout.setHorizontalGroup(
@@ -138,20 +136,20 @@ public class Practice extends javax.swing.JFrame {
                         .addComponent(Practice_languageIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Practice_inputCodeBox)
                             .addComponent(jScrollPane3)
-                            .addComponent(jScrollPane2)
                             .addGroup(Practice_panelLayout.createSequentialGroup()
                                 .addComponent(Practice_languageLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Practice_languageName)
-                                .addGap(18, 18, 18)
+                                .addComponent(Practice_languageName, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(94, 94, 94)
                                 .addComponent(Practice_remainingTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Practice_remainingTime, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Practice_timeIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(41, 41, 41))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -178,9 +176,9 @@ public class Practice extends javax.swing.JFrame {
                                 .addComponent(Practice_languageName)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120)
+                .addGap(18, 18, 18)
+                .addComponent(Practice_inputCodeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133)
                 .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -207,17 +205,6 @@ public class Practice extends javax.swing.JFrame {
         this.setVisible(false);
         new MainMenu().setVisible(true);
     }//GEN-LAST:event_Practice_returnToMainMenuButtonActionPerformed
-
-    private void Practice_inputCodePaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Practice_inputCodePaneKeyPressed
-        // TODO add your handling code here:
-        if(startCount==false)
-        {
-            startCount=true;
-        timer = new Timer(); 
-        TimerTask task = new Helper(1); 
-        timer.schedule(task,1,1000);
-        }
-    }//GEN-LAST:event_Practice_inputCodePaneKeyPressed
 
     /**
      * @param args the command line arguments
@@ -255,7 +242,7 @@ public class Practice extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextPane Practice_inputCodePane;
+    private javax.swing.JTextField Practice_inputCodeBox;
     private javax.swing.JLabel Practice_languageIndecatorLabel;
     private javax.swing.JLabel Practice_languageLabel;
     private javax.swing.JLabel Practice_languageName;
@@ -266,7 +253,7 @@ public class Practice extends javax.swing.JFrame {
     private javax.swing.JLabel Practice_remainingTimeLabel;
     private javax.swing.JButton Practice_returnToMainMenuButton;
     private javax.swing.JLabel Practice_timeIndecatorLabel;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 }
