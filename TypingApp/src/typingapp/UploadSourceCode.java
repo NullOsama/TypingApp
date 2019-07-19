@@ -169,7 +169,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
     private void UploadSoruceCode_saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadSoruceCode_saveButtonActionPerformed
         // TODO add your handling code here:
         Settings.setLanguageCode(code);
-        Settings.languageName=UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString();
+        Settings.setLanguageName(UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString());
         UploadSourceCode_saveButton.setVisible(true);
     }//GEN-LAST:event_UploadSoruceCode_saveButtonActionPerformed
 
