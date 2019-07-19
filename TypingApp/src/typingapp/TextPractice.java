@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  *
- * @author Relax
+ * @author Waleed Jubeh
  */
 public class TextPractice {
     private ArrayList<String> lines=new ArrayList<String>();
@@ -26,14 +26,21 @@ public class TextPractice {
     {
         numberOfCorrectCharacters+=num;
     }
-    public void increase_CurrentWord()
+    public boolean isEndOfLine()
     {
-        currentWord+=1;
+        return currentWord==currentLine.size();
+    }
+    public boolean increase_CurrentWord()
+    {
+                currentWord+=1;
+        boolean temp=currentWord>=currentLine.size();
+        
         if(currentWord>=currentLine.size())
         {
-        setNewLine();
         currentWord=0;
+        setNewLine();
         }
+        return temp;
     }
     public String getCurrentWord()
     {
@@ -41,7 +48,6 @@ public class TextPractice {
             return "";
         return currentLine.get(currentWord);
     }
-    private int CurrentlineNumber=0;
     public void setText(String txt)
     {
         String [] textLine=txt.split("\n");
@@ -59,9 +65,9 @@ public class TextPractice {
     public ArrayList<String> getLines(int  numberOfLines)
     {
         ArrayList<String> lineRecieved=new ArrayList<String>();
-        int temp=lineCounter;
-        for (;lineCounter<lines.size() &&lineCounter<(temp +numberOfLines) ;lineCounter++ )
-                lineRecieved.add(lines.get(lineCounter));
+        int temp=Math.max(0, currentLineCounter-1);
+        for (int i=temp;i<lines.size() && i<(temp+numberOfLines) ;i++)
+                lineRecieved.add(lines.get(i));
         return lineRecieved;
     }
     public void setNewLine()

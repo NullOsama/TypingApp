@@ -16,7 +16,7 @@ import javax.swing.JFrame;
  * @author aaxxo
  */
 public class Practice extends javax.swing.JFrame {
-    public static int counter = 60; 
+    public static int counter = 160; 
     private boolean startCount=false;
     private Timer timer=new Timer();
      TextPractice code;
@@ -56,10 +56,11 @@ public class Practice extends javax.swing.JFrame {
     {
         this.setVisible(false);
     }
-    public void showLines()
+    public void showLines(int num)
     {
-         ArrayList<String> x=code.getLines(3);
-        for( String l : x)
+        Practice_originCodePane.setText("");
+        ArrayList<String> lines=code.getLines(num);
+        for( String l : lines)
             if(Practice_originCodePane.getText().trim().equals(""))
                         Practice_originCodePane.setText(l);
             else
@@ -71,8 +72,9 @@ public class Practice extends javax.swing.JFrame {
         initComponents();
         Practice_languageName.setText(Settings.languageName);
         code.setText(Settings.getLanguageCode());
+        showLines(3);
         code.setNewLine();
-        showLines();
+
     }
 
     /**
@@ -226,13 +228,20 @@ public class Practice extends javax.swing.JFrame {
         if(key == 32 || key == 10)//Space is 32 , Enter is 10
         {
             String inputWord=Practice_inputCodeBox.getText();
+            if(inputWord.trim().equals(""))
+                return;
             String correctWord=code.getCurrentWord();
-            System.out.println(correctWord+" "+correctWord);
+            System.out.println(correctWord+" "+inputWord);
             Practice_inputCodeBox.setText("");
             boolean iscorrect=code.compareWord(correctWord.trim(), inputWord.trim());
             if(iscorrect==true)
                 code.increase_numberOfCorrectCharacters(inputWord.length());
-            code.increase_CurrentWord();
+            if(code.increase_CurrentWord()==true)
+            {
+             
+             showLines(3);//Thread
+            }
+
             System.out.println(iscorrect);
         }
 
