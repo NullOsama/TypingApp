@@ -71,7 +71,9 @@ public class Practice extends javax.swing.JFrame {
         code =new TextPractice();
         initComponents();
         Practice_languageName.setText(Settings.getLanguageName());
-        Practice_originCodePane.setText(Settings.getLanguageCode());
+        code.setText(Settings.getLanguageCode());
+        showLines(3);
+        code.setNewLine();
     }
 
     /**
