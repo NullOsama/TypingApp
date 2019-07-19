@@ -18,11 +18,11 @@ import javax.swing.JFrame;
 public class Practice extends javax.swing.JFrame {
     public static int counter = 60; 
     private boolean startCount=false;
-    private Timer timer;
+    private Timer timer=new Timer();
      TextPractice code;
     class Helper extends TimerTask 
 { 
-        private int choice;
+    private int choice;
     public Helper(int choice)
     {
         this.choice=choice;
@@ -30,20 +30,23 @@ public class Practice extends javax.swing.JFrame {
     @Override
     public void run() 
     { 
-            --counter;
-            if(counter == 0)
-            {
-                JFrame resultForm=new Results();
-                resultForm.setVisible(true);
-                hideForm();
-                timer.cancel();
-            }else {
-            
-            System.out.println(counter);
-            Practice_remainingTime.setText(counter+"");
-            
-            }
+            switch(choice){
+                case 1:
+                    --counter;
+                    if(counter == 0)
+                    {
+                        JFrame resultForm=new Results();
+                        resultForm.setVisible(true);
+                        hideForm();
+                        timer.cancel();
+                    }else
+                    {
+                    System.out.println(counter);
+                    Practice_remainingTime.setText(counter+"");
+                    }
+                    break;
 
+            }
         }
     } 
     /**
@@ -212,6 +215,13 @@ public class Practice extends javax.swing.JFrame {
     }//GEN-LAST:event_Practice_returnToMainMenuButtonActionPerformed
 
     private void Practice_inputCodeBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Practice_inputCodeBoxKeyPressed
+        if(startCount==false)
+        {
+            startCount=true;
+         TimerTask task = new Helper(1); 
+        timer.schedule(task, 0 ,1000); 
+
+        }
         int key = evt.getKeyCode();
         if(key == 32 || key == 10)//Space is 32 , Enter is 10
         {
