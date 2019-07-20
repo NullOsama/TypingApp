@@ -22,6 +22,7 @@ public class Results extends javax.swing.JFrame {
     
     public Results(int correctChars, Map<String, Integer> errorChars) {
         initComponents();
+        this.setResizable(false);
         int counter =0;
         float speed = correctChars/10;
         
