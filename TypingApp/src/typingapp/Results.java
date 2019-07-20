@@ -26,7 +26,7 @@ public class Results extends javax.swing.JFrame {
         int counter =0;
         float speed = correctChars/10;
         
-        Results_speedResult.setText(Float.toString(speed) + "Words per");
+        Results_speedResult.setText(Float.toString(speed) + " Words per 2 minutes");
         
         for(Map.Entry<String, Integer> entry: errorChars.entrySet())
         {
