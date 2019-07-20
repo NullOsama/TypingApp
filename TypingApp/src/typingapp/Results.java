@@ -23,7 +23,7 @@ public class Results extends javax.swing.JFrame {
     public Results(int correctChars, Map<String, Integer> errorChars) {
         initComponents();
         int counter =0;
-        float speed = correctChars/5;
+        float speed = correctChars/10;
         
         Results_speedResult.setText(Float.toString(speed) + "Words per");
         
