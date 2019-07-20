@@ -19,6 +19,7 @@ public class MainMenu extends javax.swing.JFrame {
         
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        this.setTitle("Typing Typo");
         
         if(Settings.getLanguageName().equals(""))
         MainMenu_practiceButton.setEnabled(false);

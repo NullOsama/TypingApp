@@ -24,6 +24,8 @@ public class Results extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        this.setTitle("Typing Typo");
+        
         int counter =0;
         float speed = correctChars/5;
         

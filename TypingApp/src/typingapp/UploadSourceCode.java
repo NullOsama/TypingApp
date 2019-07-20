@@ -27,6 +27,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        this.setTitle("Typing Typo");
         
         String selectedItem = UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString();
         String filePath = "CodeResources//" + selectedItem + ".txt";

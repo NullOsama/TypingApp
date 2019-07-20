@@ -97,6 +97,8 @@ public class Practice extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.setTitle("Typing Typo");
+        
         code =new TextPractice();
         HTMLEditorKit kit = new HTMLEditorKit();
         Practice_originCodePane.setEditorKit(kit);
