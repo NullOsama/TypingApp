@@ -111,20 +111,18 @@
                                       <Component id="Results_numberOfErrors" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="Results_listOfError" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="Resultsform_javaImg" min="-2" pref="134" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                  <Component id="Results_cImage1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="Results_listOfError" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                          <Component id="Results_cImage1" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="Resultsform_javaImg" alignment="1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="111" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="Results_finishButton" min="-2" pref="43" max="-2" attributes="0"/>
@@ -225,7 +223,7 @@
         <Component class="javax.swing.JLabel" name="Resultsform_javaImg">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\TypingApp\TypingApp\img\java.png"/>
+              <Image iconType="3" name="/typingapp/java.png"/>
             </Property>
           </Properties>
         </Component>

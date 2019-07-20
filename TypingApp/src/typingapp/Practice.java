@@ -107,7 +107,7 @@ public class Practice extends javax.swing.JFrame {
     
         Practice_originCodePane.setContentType("text/html");
         Practice_languageName.setText(Settings.getLanguageName());
-        String iconPath = "C:\\Users\\aaxxo\\Desktop\\TypingApp\\TypingApp\\IconResources\\" + Settings.getLanguageName() + ".png";
+        String iconPath = "IconResources\\" + Settings.getLanguageName() + ".png";
         Practice_languageName.setIcon(new ImageIcon(iconPath));
         code.setText(Settings.getLanguageCode());
         showLines(3);
@@ -178,22 +178,33 @@ public class Practice extends javax.swing.JFrame {
             }
         });
 
-        Practiceform_javaImg.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\java.png")); // NOI18N
+        Practiceform_javaImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/typingapp/java.png"))); // NOI18N
 
-        Practiceform_matlabImg.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\matlab.png")); // NOI18N
+        Practiceform_matlabImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/typingapp/matlab.png"))); // NOI18N
 
-        Practice_cImage1.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\c++.png")); // NOI18N
+        Practice_cImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/typingapp/c++.png"))); // NOI18N
 
         javax.swing.GroupLayout Practice_panelLayout = new javax.swing.GroupLayout(Practice_panel);
         Practice_panel.setLayout(Practice_panelLayout);
         Practice_panelLayout.setHorizontalGroup(
             Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(Practice_panelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(212, 212, 212)
+                .addComponent(Practice_practiceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(Practiceform_javaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(Practice_panelLayout.createSequentialGroup()
+                        .addComponent(Practiceform_matlabImg)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Practice_cImage1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Practice_panelLayout.createSequentialGroup()
                         .addComponent(Practice_languageLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Practice_languageName, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,24 +214,9 @@ public class Practice extends javax.swing.JFrame {
                         .addComponent(Practice_remainingTime, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(Practice_timeIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3)
-                    .addComponent(Practice_inputCodeBox))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Practice_inputCodeBox, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(41, 41, 41))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
-                        .addComponent(Practiceform_matlabImg, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Practice_cImage1)
-                        .addGap(230, 230, 230))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(Practice_panelLayout.createSequentialGroup()
-                .addGap(212, 212, 212)
-                .addComponent(Practice_practiceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         Practice_panelLayout.setVerticalGroup(
             Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,9 +245,9 @@ public class Practice extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(Practiceform_javaImg)))
                 .addGap(18, 18, 18)
-                .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Practiceform_matlabImg, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Practice_cImage1, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Practice_cImage1)
+                    .addComponent(Practiceform_matlabImg, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63)
                 .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
