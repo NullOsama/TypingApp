@@ -18,6 +18,7 @@ public class MainMenu extends javax.swing.JFrame {
         initComponents();
         
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
         
         if(Settings.getLanguageName().equals(""))
         MainMenu_practiceButton.setEnabled(false);

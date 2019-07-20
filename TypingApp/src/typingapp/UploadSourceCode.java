@@ -26,6 +26,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
     public UploadSourceCode() {
         initComponents();
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
         
         String selectedItem = UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString();
         String filePath = "CodeResources//" + selectedItem + ".txt";
