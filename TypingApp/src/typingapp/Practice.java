@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask; 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.text.html.HTMLEditorKit;
 
@@ -105,6 +107,8 @@ public class Practice extends javax.swing.JFrame {
     
         Practice_originCodePane.setContentType("text/html");
         Practice_languageName.setText(Settings.getLanguageName());
+        String iconPath = "C:\\Users\\aaxxo\\Desktop\\TypingApp\\TypingApp\\IconResources\\" + Settings.getLanguageName() + ".png";
+        Practice_languageName.setIcon(new ImageIcon(iconPath));
         code.setText(Settings.getLanguageCode());
         showLines(3);
         code.setNewLine();

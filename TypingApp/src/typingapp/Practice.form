@@ -221,25 +221,10 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Practiceform_javaImg">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\TypingApp\TypingApp\img\java.png"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Practiceform_matlabImg">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\TypingApp\TypingApp\img\matlab.png"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Practice_cImage1">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\TypingApp\TypingApp\img\c++.png"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
