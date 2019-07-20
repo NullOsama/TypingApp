@@ -16,9 +16,6 @@ public class Results extends javax.swing.JFrame {
     /**
      * Creates new form Results
      */
-    public Results() {
-        initComponents();
-    }
     
     public Results(int correctChars, Map<String, Integer> errorChars) {
         initComponents();
@@ -204,7 +201,7 @@ public class Results extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Results().setVisible(true);
+                new Results(0, null).setVisible(true);
             }
         });
     }
