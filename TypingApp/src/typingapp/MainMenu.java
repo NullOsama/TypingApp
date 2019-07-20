@@ -40,9 +40,9 @@ public class MainMenu extends javax.swing.JFrame {
         MainMenu_uploadSourceCodeButton = new javax.swing.JButton();
         MainMenu_practiceButton = new javax.swing.JButton();
         MainMenu_exitButton = new javax.swing.JButton();
-        Mainform_cimage = new javax.swing.JLabel();
-        Mainform_cimage1 = new javax.swing.JLabel();
-        Mainform_cimage2 = new javax.swing.JLabel();
+        Mainform_javaImg = new javax.swing.JLabel();
+        Mainform_cImage1 = new javax.swing.JLabel();
+        Mainform_matlabImg = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -85,11 +85,11 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        Mainform_cimage.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\java.png")); // NOI18N
+        Mainform_javaImg.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\java.png")); // NOI18N
 
-        Mainform_cimage1.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\c++.png")); // NOI18N
+        Mainform_cImage1.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\c++.png")); // NOI18N
 
-        Mainform_cimage2.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\matlab.png")); // NOI18N
+        Mainform_matlabImg.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\matlab.png")); // NOI18N
 
         javax.swing.GroupLayout MainMenu_panelLayout = new javax.swing.GroupLayout(MainMenu_panel);
         MainMenu_panel.setLayout(MainMenu_panelLayout);
@@ -102,7 +102,7 @@ public class MainMenu extends javax.swing.JFrame {
                         .addComponent(MainMenu_welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MainMenu_panelLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(Mainform_cimage, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Mainform_javaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addGroup(MainMenu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(MainMenu_uploadSourceCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -112,12 +112,12 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(MainMenu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainMenu_panelLayout.createSequentialGroup()
                     .addContainerGap(348, Short.MAX_VALUE)
-                    .addComponent(Mainform_cimage1)
+                    .addComponent(Mainform_cImage1)
                     .addGap(38, 38, 38)))
             .addGroup(MainMenu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainMenu_panelLayout.createSequentialGroup()
                     .addContainerGap(317, Short.MAX_VALUE)
-                    .addComponent(Mainform_cimage2)
+                    .addComponent(Mainform_matlabImg)
                     .addGap(20, 20, 20)))
         );
         MainMenu_panelLayout.setVerticalGroup(
@@ -133,19 +133,19 @@ public class MainMenu extends javax.swing.JFrame {
                         .addComponent(MainMenu_practiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MainMenu_panelLayout.createSequentialGroup()
                         .addGap(102, 102, 102)
-                        .addComponent(Mainform_cimage)))
+                        .addComponent(Mainform_javaImg)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(MainMenu_exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
             .addGroup(MainMenu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MainMenu_panelLayout.createSequentialGroup()
                     .addGap(87, 87, 87)
-                    .addComponent(Mainform_cimage1)
+                    .addComponent(Mainform_cImage1)
                     .addContainerGap(217, Short.MAX_VALUE)))
             .addGroup(MainMenu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainMenu_panelLayout.createSequentialGroup()
                     .addContainerGap(203, Short.MAX_VALUE)
-                    .addComponent(Mainform_cimage2)
+                    .addComponent(Mainform_matlabImg)
                     .addGap(94, 94, 94)))
         );
 
@@ -194,7 +194,7 @@ public class MainMenu extends javax.swing.JFrame {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
                     break;
                 }
             }
@@ -223,9 +223,9 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton MainMenu_practiceButton;
     private javax.swing.JButton MainMenu_uploadSourceCodeButton;
     private javax.swing.JLabel MainMenu_welcomeLabel;
-    private javax.swing.JLabel Mainform_cimage;
-    private javax.swing.JLabel Mainform_cimage1;
-    private javax.swing.JLabel Mainform_cimage2;
+    private javax.swing.JLabel Mainform_cImage1;
+    private javax.swing.JLabel Mainform_javaImg;
+    private javax.swing.JLabel Mainform_matlabImg;
     private javax.swing.JFrame jFrame1;
     // End of variables declaration//GEN-END:variables
 }

@@ -203,7 +203,14 @@ public class UploadSourceCode extends javax.swing.JFrame {
 
     private void UploadSoruceCode_saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadSoruceCode_saveButtonActionPerformed
         // TODO add your handling code here:
+            code = code.replace(">", "&gt;");
+            code = code.replace("<", "&lt;");
+            code = code.replace("\"", "&quot;");
+            code = code.replace("}", "");
+            code = code.replace("{", "");
         Settings.setLanguageCode(code);
+
+
         Settings.setLanguageName(UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString());
         UploadSourceCode_saveButton.setVisible(true);
     }//GEN-LAST:event_UploadSoruceCode_saveButtonActionPerformed
@@ -239,11 +246,6 @@ public class UploadSourceCode extends javax.swing.JFrame {
                 code += '\n';
                 
             }
-            code = code.replace(">", "&gt;");
-            code = code.replace("<", "&lt;");
-            code = code.replace("\"", "&quot;");
-            code = code.replace("}", "");
-            code = code.replace("{", "");
             UploadSourceCode_codeReviewArea.setText(code);
             UploadSourceCode_saveButton.setVisible(false);
         }
