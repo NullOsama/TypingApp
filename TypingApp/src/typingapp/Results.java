@@ -77,6 +77,11 @@ public class Results extends javax.swing.JFrame {
 
         Results_finishButton.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
         Results_finishButton.setText("Finish");
+        Results_finishButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Results_finishButtonActionPerformed(evt);
+            }
+        });
 
         Results_errorList.setColumns(20);
         Results_errorList.setRows(5);
@@ -151,6 +156,12 @@ public class Results extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Results_finishButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Results_finishButtonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new MainMenu().setVisible(true);
+    }//GEN-LAST:event_Results_finishButtonActionPerformed
 
     /**
      * @param args the command line arguments
