@@ -22,6 +22,7 @@ public class Practice extends javax.swing.JFrame {
     public static int counter = 160; 
     private boolean startCount=false;
     private Timer timer=new Timer();
+    private Timer colorTimer = new Timer();
     TextPractice code;
     class Helper extends TimerTask 
     { 
@@ -50,20 +51,22 @@ public class Practice extends javax.swing.JFrame {
                     else
                     {
                         Practice_remainingTime.setText(counter+"");
-                        
-                        if(flag)
+                    }
+                    break;
+                    
+                case 2:
+                    
+                    if(flag)
                         {
                             Practice_remainingTime.setForeground(Color.red);
                             flag = false;
                         }
                         else
                         {
-                            Practice_remainingTime.setForeground(Color.black);
+                            Practice_remainingTime.setForeground(Color.BLUE);
                             flag=true;
                         }
-                    }
                     break;
-
             }
         }
     } 
@@ -181,11 +184,11 @@ public class Practice extends javax.swing.JFrame {
                                 .addComponent(Practice_languageLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Practice_languageName, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(94, 94, 94)
-                                .addComponent(Practice_remainingTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(90, 90, 90)
+                                .addComponent(Practice_remainingTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Practice_remainingTime, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)))
+                                .addGap(36, 36, 36)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Practice_timeIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41))
@@ -248,10 +251,12 @@ public class Practice extends javax.swing.JFrame {
     private void Practice_inputCodeBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Practice_inputCodeBoxKeyPressed
         if(startCount==false)
         {
-            startCount=true;
-         TimerTask task = new Helper(1); 
+        startCount=true;
+        TimerTask task2 = new Helper(2);
+        colorTimer.schedule(task2, 0, 500);
+        
+        TimerTask task = new Helper(1); 
         timer.schedule(task, 0 ,1000); 
-
         }
         int key = evt.getKeyCode();
         if(key == 32 || key == 10)//Space is 32 , Enter is 10

@@ -22,16 +22,17 @@ public class Results extends javax.swing.JFrame {
     
     public Results(int correctChars, Map<String, Integer> errorChars) {
         initComponents();
-        
+        int counter =0;
         float speed = correctChars/5;
         
         Results_speedResult.setText(Float.toString(speed) + "Words per");
         
         for(Map.Entry<String, Integer> entry: errorChars.entrySet())
         {
-            Results_errorList.setText(Results_errorList.getText() + entry.getKey() + ":" +entry.getValue() + '\n');
+            Results_errorList.setText(Results_errorList.getText() + entry.getKey() + ": " +entry.getValue() + '\n');
+            counter += entry.getValue();
         }
-        
+        Results_numberOfErrors.setText(Integer.toString(counter));
     }
 
     /**
