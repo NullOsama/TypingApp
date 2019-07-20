@@ -95,7 +95,7 @@ public class Practice extends javax.swing.JFrame {
     }
     public Practice() {
         initComponents();
-        
+        this.setResizable(false);
         code =new TextPractice();
         HTMLEditorKit kit = new HTMLEditorKit();
         Practice_originCodePane.setEditorKit(kit);
