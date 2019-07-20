@@ -17,12 +17,12 @@ import javax.swing.text.html.HTMLEditorKit;
  * @author aaxxo
  */
 public class Practice extends javax.swing.JFrame {
-    public static int counter = 160; 
+    public static int counter = 61; 
     private boolean startCount=false;
     private Timer timer=new Timer();
-     TextPractice code;
+    TextPractice code;
     class Helper extends TimerTask 
-{ 
+    { 
     private int choice;
     public Helper(int choice)
     {
@@ -42,7 +42,7 @@ public class Practice extends javax.swing.JFrame {
                         timer.cancel();
                     }else
                     {
-                    Practice_remainingTime.setText(counter+"");
+                        Practice_remainingTime.setText(counter+"");
                     }
                     break;
 

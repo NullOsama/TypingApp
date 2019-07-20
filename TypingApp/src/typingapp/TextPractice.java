@@ -32,13 +32,13 @@ public class TextPractice {
     }
     public boolean increase_CurrentWord()
     {
-                currentWord+=1;
+        currentWord+=1;
         boolean temp=currentWord>=currentLine.size();
         
         if(currentWord>=currentLine.size())
         {
-        currentWord=0;
-        setNewLine();
+            currentWord=0;
+            setNewLine();
         }
         return temp;
     }
