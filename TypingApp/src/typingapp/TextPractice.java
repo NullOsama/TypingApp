@@ -21,11 +21,15 @@ public class TextPractice {
     private int currentWord=0;
     private int lineCounter=0;
     private int currentLineCounter=0;
-    private int numberOfCorrectCharacters=0;
+    private  int numberOfCorrectCharacters=0;
+    
     public void increase_numberOfCorrectCharacters(int num)
     {
         numberOfCorrectCharacters+=num;
     }
+    
+    
+    
     public boolean isEndOfLine()
     {
         return currentWord==currentLine.size();
@@ -70,16 +74,15 @@ public class TextPractice {
         {
             String code=lines.get(i);
             lineRecieved.add(code);
-        
         }
         return lineRecieved;
     }
     public String cleanString(String code)
     {
-            code = code.replace(">", "&gt;");
-            code = code.replace("<", "&lt;");
-            code = code.replace("\"", "&quot;");
-            return code;
+        code = code.replace(">", "&gt;");
+        code = code.replace("<", "&lt;");
+        code = code.replace("\"", "&quot;");
+        return code;
     }
     public void setNewLine()
     {
@@ -100,6 +103,14 @@ public class TextPractice {
                 correct=false;
             }
         return correct;
+    }
+
+    public Map<String, Integer> getErrorChar() {
+        return errorChar;
+    }
+
+    public int getNumberOfCorrectCharacters() {
+        return numberOfCorrectCharacters;
     }
     
 }

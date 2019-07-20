@@ -169,7 +169,7 @@
         </Container>
         <Component class="javax.swing.JLabel" name="Practice_remainingTime">
           <Properties>
-            <Property name="text" type="java.lang.String" value="60"/>
+            <Property name="text" type="java.lang.String" value="160"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Practice_languageName">

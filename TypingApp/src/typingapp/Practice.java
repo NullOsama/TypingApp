@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package typingapp;
+import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask; 
 import javax.swing.JFrame;
@@ -17,7 +19,7 @@ import javax.swing.text.html.HTMLEditorKit;
  * @author aaxxo
  */
 public class Practice extends javax.swing.JFrame {
-    public static int counter = 61; 
+    public static int counter = 160; 
     private boolean startCount=false;
     private Timer timer=new Timer();
     TextPractice code;
@@ -28,6 +30,7 @@ public class Practice extends javax.swing.JFrame {
     {
         this.choice=choice;
     }
+    boolean flag=true;
     @Override
     public void run() 
     { 
@@ -36,13 +39,28 @@ public class Practice extends javax.swing.JFrame {
                     --counter;
                     if(counter == 0)
                     {
-                        JFrame resultForm=new Results();
+                        int correctChars = code.getNumberOfCorrectCharacters();
+                        Map<String, Integer> errorChars = code.getErrorChar();
+                       
+                        JFrame resultForm=new Results(correctChars, errorChars);
                         resultForm.setVisible(true);
                         hideForm();
                         timer.cancel();
-                    }else
+                    }
+                    else
                     {
                         Practice_remainingTime.setText(counter+"");
+                        
+                        if(flag)
+                        {
+                            Practice_remainingTime.setForeground(Color.red);
+                            flag = false;
+                        }
+                        else
+                        {
+                            Practice_remainingTime.setForeground(Color.black);
+                            flag=true;
+                        }
                     }
                     break;
 
@@ -73,8 +91,9 @@ public class Practice extends javax.swing.JFrame {
 
     }
     public Practice() {
-        code =new TextPractice();
         initComponents();
+        
+        code =new TextPractice();
         HTMLEditorKit kit = new HTMLEditorKit();
         Practice_originCodePane.setEditorKit(kit);
     
@@ -130,7 +149,7 @@ public class Practice extends javax.swing.JFrame {
         Practice_originCodePane.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
         jScrollPane3.setViewportView(Practice_originCodePane);
 
-        Practice_remainingTime.setText("60");
+        Practice_remainingTime.setText("160");
 
         Practice_languageName.setText("Practice_languageName");
 
