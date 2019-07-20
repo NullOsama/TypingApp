@@ -19,7 +19,7 @@ import javax.swing.text.html.HTMLEditorKit;
  * @author aaxxo
  */
 public class Practice extends javax.swing.JFrame {
-    public static int counter = 160; 
+    public static int counter = 60; 
     private boolean startCount=false;
     private Timer timer=new Timer();
     private Timer colorTimer = new Timer();
@@ -38,7 +38,7 @@ public class Practice extends javax.swing.JFrame {
             switch(choice){
                 case 1:
                     --counter;
-                    if(counter == 0)
+                    if(counter <= 0)
                     {
                         int correctChars = code.getNumberOfCorrectCharacters();
                         Map<String, Integer> errorChars = code.getErrorChar();
@@ -122,7 +122,6 @@ public class Practice extends javax.swing.JFrame {
         Practice_panel = new javax.swing.JPanel();
         Practice_practiceLabel = new javax.swing.JLabel();
         Practice_languageLabel = new javax.swing.JLabel();
-        Practice_languageIndecatorLabel = new javax.swing.JLabel();
         Practice_remainingTimeLabel = new javax.swing.JLabel();
         Practice_timeIndecatorLabel = new javax.swing.JLabel();
         Practice_returnToMainMenuButton = new javax.swing.JButton();
@@ -131,14 +130,20 @@ public class Practice extends javax.swing.JFrame {
         Practice_remainingTime = new javax.swing.JLabel();
         Practice_languageName = new javax.swing.JLabel();
         Practice_inputCodeBox = new javax.swing.JTextField();
+        Practiceform_javaImg = new javax.swing.JLabel();
+        Practiceform_matlabImg = new javax.swing.JLabel();
+        Practice_cImage1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Practice_practiceLabel.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         Practice_practiceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Practice_practiceLabel.setText("Practice !");
 
+        Practice_languageLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         Practice_languageLabel.setText("Language: ");
 
+        Practice_remainingTimeLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Practice_remainingTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Practice_remainingTimeLabel.setText("Time Remaining: ");
 
@@ -150,14 +155,16 @@ public class Practice extends javax.swing.JFrame {
         });
 
         Practice_originCodePane.setEditable(false);
-        Practice_originCodePane.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
+        Practice_originCodePane.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jScrollPane3.setViewportView(Practice_originCodePane);
 
-        Practice_remainingTime.setText("160");
+        Practice_remainingTime.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        Practice_remainingTime.setText("60");
 
+        Practice_languageName.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         Practice_languageName.setText("Practice_languageName");
 
-        Practice_inputCodeBox.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
+        Practice_inputCodeBox.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         Practice_inputCodeBox.setBorder(new javax.swing.border.MatteBorder(null));
         Practice_inputCodeBox.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -165,63 +172,81 @@ public class Practice extends javax.swing.JFrame {
             }
         });
 
+        Practiceform_javaImg.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\java.png")); // NOI18N
+
+        Practiceform_matlabImg.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\matlab.png")); // NOI18N
+
+        Practice_cImage1.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\c++.png")); // NOI18N
+
         javax.swing.GroupLayout Practice_panelLayout = new javax.swing.GroupLayout(Practice_panel);
         Practice_panel.setLayout(Practice_panelLayout);
         Practice_panelLayout.setHorizontalGroup(
             Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Practice_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Practiceform_javaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
                 .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Practice_panelLayout.createSequentialGroup()
-                        .addGap(241, 241, 241)
-                        .addComponent(Practice_practiceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Practice_panelLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(Practice_languageIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Practice_languageLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Practice_languageName, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Practice_remainingTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Practice_inputCodeBox)
-                            .addComponent(jScrollPane3)
-                            .addGroup(Practice_panelLayout.createSequentialGroup()
-                                .addComponent(Practice_languageLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Practice_languageName, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(90, 90, 90)
-                                .addComponent(Practice_remainingTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Practice_remainingTime, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Practice_timeIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Practice_remainingTime, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(Practice_timeIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3)
+                    .addComponent(Practice_inputCodeBox))
                 .addGap(41, 41, 41))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
+                        .addComponent(Practiceform_matlabImg, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Practice_cImage1)
+                        .addGap(230, 230, 230))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(Practice_panelLayout.createSequentialGroup()
+                .addGap(212, 212, 212)
+                .addComponent(Practice_practiceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Practice_panelLayout.setVerticalGroup(
             Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Practice_panelLayout.createSequentialGroup()
                 .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Practice_panelLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(Practice_languageIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(Practice_panelLayout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(Practice_timeIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
+                                .addComponent(Practice_practiceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(Practice_remainingTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Practice_remainingTime))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(Practice_languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Practice_languageName)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Practice_inputCodeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Practice_panelLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(Practice_timeIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Practice_practiceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Practice_remainingTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Practice_remainingTime))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Practice_languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Practice_languageName)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Practiceform_javaImg)))
                 .addGap(18, 18, 18)
-                .addComponent(Practice_inputCodeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133)
+                .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Practiceform_matlabImg, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Practice_cImage1, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(63, 63, 63)
                 .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -232,8 +257,7 @@ public class Practice extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Practice_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(56, 56, 56))
+                .addComponent(Practice_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,8 +369,8 @@ public void backgorundColorInput(String color,String word)
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Practice_cImage1;
     private javax.swing.JTextField Practice_inputCodeBox;
-    private javax.swing.JLabel Practice_languageIndecatorLabel;
     private javax.swing.JLabel Practice_languageLabel;
     private javax.swing.JLabel Practice_languageName;
     private javax.swing.JTextPane Practice_originCodePane;
@@ -356,6 +380,8 @@ public void backgorundColorInput(String color,String word)
     private javax.swing.JLabel Practice_remainingTimeLabel;
     private javax.swing.JButton Practice_returnToMainMenuButton;
     private javax.swing.JLabel Practice_timeIndecatorLabel;
+    private javax.swing.JLabel Practiceform_javaImg;
+    private javax.swing.JLabel Practiceform_matlabImg;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables

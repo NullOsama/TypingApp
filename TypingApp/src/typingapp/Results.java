@@ -25,13 +25,13 @@ public class Results extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         int counter =0;
-        float speed = correctChars/10;
+        float speed = correctChars/5;
         
-        Results_speedResult.setText(Float.toString(speed) + " Words per 2 minutes");
+        Results_speedResult.setText(Float.toString(speed) + " WPS "+"/ [ "+correctChars+"CPS ]");
         
         for(Map.Entry<String, Integer> entry: errorChars.entrySet())
         {
-            Results_errorList.setText(Results_errorList.getText() + entry.getKey() + ": " +entry.getValue() + '\n');
+            Results_errorList.setText(Results_errorList.getText() + "["+entry.getKey() + "] : " +entry.getValue() + '\n');
             counter += entry.getValue();
         }
         Results_numberOfErrors.setText(Integer.toString(counter));
@@ -56,24 +56,28 @@ public class Results extends javax.swing.JFrame {
         Results_finishButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Results_errorList = new javax.swing.JTextArea();
+        Results_cImage1 = new javax.swing.JLabel();
+        Resultsform_javaImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
-        Results_title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Results_title.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         Results_title.setForeground(new java.awt.Color(0, 204, 0));
         Results_title.setText("Your Results");
 
-        jLabel1.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         jLabel1.setText("Typing Speed:");
 
-        jLabel2.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         jLabel2.setText("Number of Errors:");
 
-        Results_listOfError.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
+        Results_listOfError.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         Results_listOfError.setText("List of errors:");
 
+        Results_speedResult.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         Results_speedResult.setText("Results_speedResult");
 
+        Results_numberOfErrors.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         Results_numberOfErrors.setText("Results_numberOfErrors");
 
         Results_finishButton.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
@@ -84,9 +88,15 @@ public class Results extends javax.swing.JFrame {
             }
         });
 
+        Results_errorList.setEditable(false);
         Results_errorList.setColumns(20);
+        Results_errorList.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         Results_errorList.setRows(5);
         jScrollPane1.setViewportView(Results_errorList);
+
+        Results_cImage1.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\c++.png")); // NOI18N
+
+        Resultsform_javaImg.setIcon(new javax.swing.ImageIcon("C:\\TypingApp\\TypingApp\\img\\java.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,9 +105,6 @@ public class Results extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(Results_title, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Results_listOfError)
@@ -105,33 +112,54 @@ public class Results extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(40, 40, 40)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Results_speedResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Results_numberOfErrors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Results_numberOfErrors))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(Results_title, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(Results_speedResult, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Resultsform_javaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(Results_cImage1)
+                .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 109, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Results_finishButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Results_finishButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(32, 32, 32))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Results_title, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Results_speedResult))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Results_numberOfErrors, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(Results_listOfError)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Results_title, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Results_speedResult))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Results_numberOfErrors, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(Resultsform_javaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)))
+                        .addComponent(Results_listOfError))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(Results_cImage1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -200,12 +228,14 @@ public class Results extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Results_cImage1;
     private javax.swing.JTextArea Results_errorList;
     private javax.swing.JButton Results_finishButton;
     private javax.swing.JLabel Results_listOfError;
     private javax.swing.JLabel Results_numberOfErrors;
     private javax.swing.JLabel Results_speedResult;
     private javax.swing.JLabel Results_title;
+    private javax.swing.JLabel Resultsform_javaImg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
