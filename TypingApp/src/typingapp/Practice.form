@@ -63,11 +63,11 @@
                                   <Component id="Practice_languageLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="Practice_languageName" min="-2" pref="39" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                                  <Component id="Practice_remainingTimeLabel" min="-2" pref="86" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                                  <Component id="Practice_remainingTimeLabel" min="-2" pref="102" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="Practice_remainingTime" min="-2" pref="49" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -169,7 +169,7 @@
         </Container>
         <Component class="javax.swing.JLabel" name="Practice_remainingTime">
           <Properties>
-            <Property name="text" type="java.lang.String" value="60"/>
+            <Property name="text" type="java.lang.String" value="160"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Practice_languageName">
