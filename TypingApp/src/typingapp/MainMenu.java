@@ -55,6 +55,7 @@ public class MainMenu extends javax.swing.JFrame {
         );
 
     
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         MainMenu_welcomeLabel.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -100,7 +101,7 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(MainMenu_uploadSourceCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(MainMenu_exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(MainMenu_practiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         MainMenu_panelLayout.setVerticalGroup(
             MainMenu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,9 +114,9 @@ public class MainMenu extends javax.swing.JFrame {
                         .addComponent(MainMenu_uploadSourceCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(MainMenu_practiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE))
                     .addGroup(MainMenu_panelLayout.createSequentialGroup()
-                        .addGap(102, 204, Short.MAX_VALUE)
+                        .addGap(102, 182, Short.MAX_VALUE)
                         .addComponent(MainMenu_exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(57, 57, 57))
         );
@@ -126,11 +127,17 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainMenu_panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(MainMenu_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainMenu_panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(MainMenu_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -145,6 +152,7 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         new Practice().setVisible(true);
+        
     }//GEN-LAST:event_MainMenu_practiceButtonActionPerformed
 
     private void MainMenu_uploadSourceCodeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainMenu_uploadSourceCodeButtonActionPerformed

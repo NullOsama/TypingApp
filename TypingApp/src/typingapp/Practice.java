@@ -21,7 +21,7 @@ import javax.swing.text.html.HTMLEditorKit;
  * @author aaxxo
  */
 public class Practice extends javax.swing.JFrame {
-    public static int counter = 60; 
+    public int counter = 60; 
     private boolean startCount=false;
     private Timer timer=new Timer();
     private Timer colorTimer = new Timer();
@@ -289,6 +289,7 @@ public class Practice extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         new MainMenu().setVisible(true);
+        timer.cancel();
     }//GEN-LAST:event_Practice_returnToMainMenuButtonActionPerformed
 public void colorInput(String color,String word)
 {

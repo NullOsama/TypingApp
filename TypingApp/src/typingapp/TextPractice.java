@@ -21,7 +21,7 @@ public class TextPractice {
     private int currentWord=0;
     private int lineCounter=0;
     private int currentLineCounter=0;
-    private  int numberOfCorrectCharacters=0;
+    private int numberOfCorrectCharacters=0;
     
     public void increase_numberOfCorrectCharacters(int num)
     {
