@@ -83,7 +83,7 @@ public class Practice extends javax.swing.JFrame {
     public void showLines(int num)
     {
         Practice_originCodePane.setText("");
-        String h="";
+        String h="<style>span{font-size:14px;font-weight:700}</style>";
         ArrayList<String> lines=code.getLines(num);
         for( String l : lines)
         {
@@ -162,7 +162,7 @@ public class Practice extends javax.swing.JFrame {
         });
 
         Practice_originCodePane.setEditable(false);
-        Practice_originCodePane.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Practice_originCodePane.setFont(new java.awt.Font("Arial Unicode MS", 1, 25));
         jScrollPane3.setViewportView(Practice_originCodePane);
 
         Practice_remainingTime.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
@@ -192,9 +192,9 @@ public class Practice extends javax.swing.JFrame {
                 .addComponent(Practice_practiceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createSequentialGroup()
-                .addGap(122, 122, 122)
                 .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Practice_panelLayout.createSequentialGroup()
+                    .addGroup(Practice_panelLayout.createSequentialGroup()
+                        .addGap(122, 122, 122)
                         .addComponent(Practice_languageLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Practice_languageName, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,8 +204,11 @@ public class Practice extends javax.swing.JFrame {
                         .addComponent(Practice_remainingTime, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(Practice_timeIndecatorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Practice_inputCodeBox, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addGroup(Practice_panelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Practice_inputCodeBox, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE))))
                 .addGap(41, 41, 41))
         );
         Practice_panelLayout.setVerticalGroup(
@@ -226,10 +229,10 @@ public class Practice extends javax.swing.JFrame {
                                 .addComponent(Practice_languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Practice_languageName)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(Practice_inputCodeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133)
+                .addGap(18, 18, 18)
                 .addComponent(Practice_returnToMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
