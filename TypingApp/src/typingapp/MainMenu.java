@@ -37,7 +37,6 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
-        jLabel3 = new javax.swing.JLabel();
         MainMenu_panel = new javax.swing.JPanel();
         MainMenu_welcomeLabel = new javax.swing.JLabel();
         MainMenu_uploadSourceCodeButton = new javax.swing.JButton();
@@ -54,8 +53,6 @@ public class MainMenu extends javax.swing.JFrame {
             jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/typingapp/matlab.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -200,6 +197,5 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton MainMenu_uploadSourceCodeButton;
     private javax.swing.JLabel MainMenu_welcomeLabel;
     private javax.swing.JFrame jFrame1;
-    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
