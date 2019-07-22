@@ -37,6 +37,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
+        jLabel3 = new javax.swing.JLabel();
         MainMenu_panel = new javax.swing.JPanel();
         MainMenu_welcomeLabel = new javax.swing.JLabel();
         MainMenu_uploadSourceCodeButton = new javax.swing.JButton();
@@ -54,7 +55,7 @@ public class MainMenu extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-    
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/typingapp/matlab.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,19 +107,15 @@ public class MainMenu extends javax.swing.JFrame {
         MainMenu_panelLayout.setVerticalGroup(
             MainMenu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainMenu_panelLayout.createSequentialGroup()
-                .addGroup(MainMenu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(MainMenu_panelLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(MainMenu_welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(MainMenu_uploadSourceCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(MainMenu_practiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE))
-                    .addGroup(MainMenu_panelLayout.createSequentialGroup()
-                        .addGap(102, 182, Short.MAX_VALUE)
-                        .addComponent(MainMenu_exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(57, 57, 57))
+                .addGap(24, 24, 24)
+                .addComponent(MainMenu_welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(MainMenu_uploadSourceCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(MainMenu_practiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(MainMenu_exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         MainMenu_practiceButton.getAccessibleContext().setAccessibleParent(this);
@@ -203,5 +200,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton MainMenu_uploadSourceCodeButton;
     private javax.swing.JLabel MainMenu_welcomeLabel;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

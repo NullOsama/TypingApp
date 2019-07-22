@@ -28,9 +28,12 @@ public class UploadSourceCode extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setTitle("Typing Typo");
-        
-        String selectedItem = UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString();
-        String filePath = "CodeResources//" + selectedItem + ".txt";
+        chooseLanguage(UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString() );
+    }
+    private void chooseLanguage(String Language)
+    {
+         
+        String filePath = "CodeResources//" + Language + ".txt";
         
         try
         {   
@@ -58,13 +61,8 @@ public class UploadSourceCode extends javax.swing.JFrame {
         catch (IOException ex) 
         {
             Logger.getLogger(UploadSourceCode.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Settings.setLanguageCode(code);
-        Settings.setLanguageName(UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString());
-        
-        UploadSourceCode_saveButton.setVisible(false);
+        }        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -211,8 +209,6 @@ public class UploadSourceCode extends javax.swing.JFrame {
             code = code.replace("}", "");
             code = code.replace("{", "");
         Settings.setLanguageCode(code);
-
-
         Settings.setLanguageName(UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString());
         UploadSourceCode_saveButton.setVisible(true);
     }//GEN-LAST:event_UploadSoruceCode_saveButtonActionPerformed
@@ -226,35 +222,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
     private String code;
     private void UploadSourceCode_languageIndecatorComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UploadSourceCode_languageIndecatorComboBoxItemStateChanged
         // TODO add your handling code here:
-        String selectedItem = UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString();
-        String filePath = "CodeResources//" + selectedItem + ".txt";
-        
-        try
-        {   
-            code = "";
-            ArrayList<String> lines = new ArrayList<>();
-            lines = (ArrayList<String>) Files.readAllLines(Paths.get(filePath));
-            for(int i = 0 ;i<lines.size(); i++)
-            {
-                String[] words = lines.get(i).split(" ");
-                int count =0;
-                int j=0;
-                while(count<40 && j < words.length)
-                {
-                    code += words[j] + ' ';
-                    count += words[j].length();
-                    j++;
-                }
-                code += '\n';
-                
-            }
-            UploadSourceCode_codeReviewArea.setText(code);
-            UploadSourceCode_saveButton.setVisible(false);
-        }
-        catch (IOException ex) 
-        {
-            Logger.getLogger(UploadSourceCode.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        chooseLanguage(UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString() );
         
     }//GEN-LAST:event_UploadSourceCode_languageIndecatorComboBoxItemStateChanged
 

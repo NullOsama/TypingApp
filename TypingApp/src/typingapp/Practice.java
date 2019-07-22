@@ -302,12 +302,18 @@ public void colorInput(String color,String word)
 
 public void backgorundColorInput(String color,String word)
 {
+    String x="";
     word=code.cleanString(word);
     System.out.println("<span>"+word+"</span>");
     String colorText="<span style='background-color:"+color+"'>";
     String codeText=Practice_originCodePane.getText();
     int current=codeText.indexOf("<span>"+word+"</span>");
-    String x=codeText.substring(0,current)+colorText+word+"</span>"+codeText.substring(current+6*2+word.length()+1,codeText.length());
+    try{
+    x=codeText.substring(0,current)+colorText+word+"</span>"+codeText.substring(current+6*2+word.length()+1,codeText.length());
+    }catch(Exception e)
+    {
+        x="<span>"+word+"</span>";
+    }
     System.out.println(x);
     Practice_originCodePane.setText(x);
 }

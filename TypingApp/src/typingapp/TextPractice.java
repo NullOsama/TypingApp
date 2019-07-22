@@ -49,7 +49,7 @@ public class TextPractice {
     public String getCurrentWord()
     {
       if(currentWord>=currentLine.size())
-            return "";
+            return " ";
         return currentLine.get(currentWord);
     }
     public void setText(String txt)
@@ -86,6 +86,8 @@ public class TextPractice {
     }
     public void setNewLine()
     {
+        if(lines.size()==0)
+            return ;
         if(currentLineCounter>=lines.size())
             currentLineCounter=0;
         currentLine.clear();
@@ -102,6 +104,8 @@ public class TextPractice {
                 errorChar.put(key , errorChar.getOrDefault(key, 0) + 1 );
                 correct=false;
             }
+        if(orginal.length() != userInput.length())
+            return false;
         return correct;
     }
 
