@@ -38,6 +38,7 @@ public class Practice extends javax.swing.JFrame {
     public void run() 
     { 
             switch(choice){
+                // time timer ellapced one second
                 case 1:
                     --counter;
                     if(counter <= 0)
@@ -55,9 +56,9 @@ public class Practice extends javax.swing.JFrame {
                         Practice_remainingTime.setText(counter+"");
                     }
                     break;
-                    
+                  //tm timer elappced half second  
                 case 2:
-                    
+                    //alternate rhe timer color between red and blue
                     if(flag)
                         {
                             Practice_remainingTime.setForeground(Color.red);
@@ -81,6 +82,7 @@ public class Practice extends javax.swing.JFrame {
     }
     public void showLines(int num)
     {
+        // show nunm lines in the origin code panel
         Practice_originCodePane.setText("");
         String h="";
         ArrayList<String> lines=code.getLines(num);
@@ -248,6 +250,7 @@ public class Practice extends javax.swing.JFrame {
     private void Practice_inputCodeBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Practice_inputCodeBoxKeyPressed
         if(startCount==false)
         {
+            //defining two timers, the first one to control the color of the timer and the second one for the timer itself
             startCount=true;
             TimerTask task2 = new Helper(2);
             colorTimer.schedule(task2, 0, 500);
@@ -256,7 +259,7 @@ public class Practice extends javax.swing.JFrame {
             timer.schedule(task, 0 ,1000);
         }
         int key = evt.getKeyCode();
-        if(key == 32 || key == 10)//Space is 32 , Enter is 10
+        if(key == 32 || key == 10)//Space is 32 , Enter is 10, move to new word if pressed Space or Enter
         {
             String inputWord=Practice_inputCodeBox.getText();
             if(inputWord.trim().equals(""))
@@ -293,6 +296,7 @@ public class Practice extends javax.swing.JFrame {
     }//GEN-LAST:event_Practice_returnToMainMenuButtonActionPerformed
 public void colorInput(String color,String word)
 {
+    // Change the color of the word by the color depending on if its truly typed or not
     word=code.cleanString(word);
     String colorText="<span style='color:"+color+"'>";
     String codeText=Practice_originCodePane.getText();

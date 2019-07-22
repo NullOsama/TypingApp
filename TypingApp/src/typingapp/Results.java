@@ -17,12 +17,18 @@ public class Results extends javax.swing.JFrame {
      * Creates new form Results
      */
     
-    public Results(int correctChars, Map<String, Integer> errorChars) {
+    public Results(int correctChars, Map<String, Integer> errorChars)
+    {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setTitle("Typing Typo");
         
+        computeResults(correctChars, errorChars);
+    }
+
+    private void computeResults(int correctChars, Map<String, Integer> errorChars)
+    {
         int counter =0;
         float speed = correctChars/5;
         
@@ -35,7 +41,7 @@ public class Results extends javax.swing.JFrame {
         }
         Results_numberOfErrors.setText(Integer.toString(counter));
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

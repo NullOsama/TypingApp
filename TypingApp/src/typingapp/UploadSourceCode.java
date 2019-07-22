@@ -28,19 +28,19 @@ public class UploadSourceCode extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setTitle("Typing Typo");
-        chooseLanguage(UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString() );
+        chooseLanguage(UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString()); // defult selection of code.
     }
     private void chooseLanguage(String Language)
     {
-         
+         // Language here means the Language a user choosed.
         String filePath = "CodeResources//" + Language + ".txt";
         
         try
         {   
             code = "";
             ArrayList<String> lines = new ArrayList<>();
-            lines = (ArrayList<String>) Files.readAllLines(Paths.get(filePath));
-            for(int i = 0 ;i<lines.size(); i++)
+            lines = (ArrayList<String>) Files.readAllLines(Paths.get(filePath));//reads all lines in specified file.
+            for(int i = 0 ;i<lines.size(); i++)//here for each line in the code sample I take words not more than 40 char/line
             {
                 String[] words = lines.get(i).split(" ");
                 int count =0;
@@ -54,7 +54,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
                 code += '\n';
             }
             code = code.replace("}", "");
-            code = code.replace("{", "");
+            code = code.replace("{", "");// remove both { and } from code
             UploadSourceCode_codeReviewArea.setText(code);
             UploadSourceCode_saveButton.setVisible(false);
         }
@@ -222,7 +222,7 @@ public class UploadSourceCode extends javax.swing.JFrame {
     private String code;
     private void UploadSourceCode_languageIndecatorComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UploadSourceCode_languageIndecatorComboBoxItemStateChanged
         // TODO add your handling code here:
-        chooseLanguage(UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString() );
+        chooseLanguage(UploadSourceCode_languageIndecatorComboBox.getSelectedItem().toString());
         
     }//GEN-LAST:event_UploadSourceCode_languageIndecatorComboBoxItemStateChanged
 
@@ -246,15 +246,11 @@ public class UploadSourceCode extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UploadSourceCode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UploadSourceCode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UploadSourceCode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(UploadSourceCode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
