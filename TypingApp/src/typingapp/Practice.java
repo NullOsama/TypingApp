@@ -107,12 +107,15 @@ public class Practice extends javax.swing.JFrame {
     
         Practice_originCodePane.setContentType("text/html");
         Practice_languageName.setText(Settings.getLanguageName());
-        String iconPath = "IconResources\\" + Settings.getLanguageName() + ".png";
+        String iconPath = "TypingApp\\IconResources\\" + Settings.getLanguageName() + ".png";
+        try{
         Practice_languageName.setIcon(new ImageIcon(iconPath));
+        }
+        catch(Exception e){}
         code.setText(Settings.getLanguageCode());
-        showLines(3);
+        showLines(7);
         code.setNewLine();
-        backgorundColorInput("orange",code.getCurrentWord());
+        backgorundColorInput("#b8e069",code.getCurrentWord());
     }
 
     /**
@@ -158,7 +161,7 @@ public class Practice extends javax.swing.JFrame {
         });
 
         Practice_originCodePane.setEditable(false);
-        Practice_originCodePane.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        Practice_originCodePane.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jScrollPane3.setViewportView(Practice_originCodePane);
 
         Practice_remainingTime.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
@@ -168,7 +171,8 @@ public class Practice extends javax.swing.JFrame {
         Practice_languageName.setText("Practice_languageName");
 
         Practice_inputCodeBox.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
-        Practice_inputCodeBox.setBorder(new javax.swing.border.MatteBorder(null));
+        Practice_inputCodeBox.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        Practice_inputCodeBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         Practice_inputCodeBox.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 Practice_inputCodeBoxKeyPressed(evt);
@@ -220,8 +224,8 @@ public class Practice extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Practice_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(Practice_languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Practice_languageName)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(Practice_inputCodeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(133, 133, 133)
@@ -278,9 +282,9 @@ public class Practice extends javax.swing.JFrame {
             if(code.increase_CurrentWord()==true)
             {
 
-                showLines(3);//Thread
+                showLines(7);//Thread
             }
-            backgorundColorInput("orange",code.getCurrentWord());
+            backgorundColorInput("#b8e069",code.getCurrentWord());
             System.out.println(iscorrect);
         }
     }//GEN-LAST:event_Practice_inputCodeBoxKeyPressed
@@ -296,7 +300,7 @@ public void colorInput(String color,String word)
     word=code.cleanString(word);
     String colorText="<span style='color:"+color+"'>";
     String codeText=Practice_originCodePane.getText();
-    codeText=codeText.replace("<span style=\"background-color: orange\">"+word+"</span>", colorText+word+"</span>");
+    codeText=codeText.replace("<span style=\"background-color: #b8e069\">"+word+"</span>", colorText+word+"</span>");
     Practice_originCodePane.setText(codeText);
 }
 
