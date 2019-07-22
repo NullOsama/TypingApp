@@ -26,6 +26,7 @@ public class Practice extends javax.swing.JFrame {
     private Timer timer=new Timer();
     private Timer colorTimer = new Timer();
     TextPractice code;
+    private int linesIndicator=0;
     class Helper extends TimerTask 
     { 
     private int choice;
@@ -281,8 +282,12 @@ public class Practice extends javax.swing.JFrame {
             }
             if(code.increase_CurrentWord()==true)
             {
-
-                showLines(7);//Thread
+                linesIndicator++;
+                if(linesIndicator==7)
+                {
+                    showLines(7);//Thread
+                    linesIndicator=0;
+                }
             }
             backgorundColorInput("#b8e069",code.getCurrentWord());
             System.out.println(iscorrect);
